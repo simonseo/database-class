@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="{{ page.description }}">
+<title>{{page.title}}</title>
+<link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
+<meta property="og:title" content="{{page.title}}"/>
+<meta property="og:type" content="article" />
+<link rel="alternate" type="application/rss+xml" href="{{ site.baseurl }}/feed.xml" title="Blog RSS Feed">
+<!-- PLEASE REPLACE WITH YOUR OWN VALUES
+<meta property="og:url" content="http://www.mortgagebloom.com/blog{{page.url}}" />
+<meta property="og:image" content="http://mortgagebloom.com/img/bloom.png" />
+<meta property="og:site_name" content="MortgageBloom" />
+-->
+</head>
+
+<body>
+<div class="header">
+<ul>
+<li><a href="/~ms9144">Bellisimon's</a></li>
+<li><a href="{{ site.baseurl }}">Database Design and Web Implementation</a></li>
+</ul>
+</div>
+
+
+
+<div class="pageContent">
+{{content}}
+</div>
+<div class="feed">
+<a type="application/rss+xml" href="{{ site.baseurl }}/feed.xml">RSS Feed</a>
+</div>
+</body>

@@ -1,0 +1,15 @@
+safe:        false
+port:        4000
+baseurl:     /~ms9144/database/
+addr:    http://i6.cims.nyu.edu
+
+source:      .
+destination: ../public_html/database
+plugins_dir:     ./_plugins
+exclude:     [newpost.rb, output]
+
+future:      false 
+lsi:         false 
+highlighter: pygments
+markdown:    kramdown
+permalink:  /:title 

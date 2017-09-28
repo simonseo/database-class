@@ -1,0 +1,5 @@
+<div class="logo">
+<a href="{{ site.addr }}"><img src="{{ site.baseurl }}/img/logo.png"></a>
+</div>
+<h1 class="postTitle">{{ page.title }}</h1>
+<div class="postDescription"><i>{{page.date | date_to_long_string}}</i></div>
