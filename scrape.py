@@ -15,7 +15,11 @@ def main():
 	# csv_name = input('Name of the output csv file: ')
 	dataname = 'endangered_species'
 	parsed = parse(page, dataname + '.csv')
-	filter(parsed, dataname + '_filtered.csv', 'CurrentDistribution', 'NY', 'Regions ofOccurrence', '5')
+	states = "AL,AK,AZ,AR,CA,CO,CT,DE,FL,GA,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,OH,OK,OR,PA,RI,SC,SD,TN,TX,UT,VT,VA,WA,WV,WI,WY".split(',')
+	for i in range(len(states)):
+		states.insert(i*2, 'CurrentDistribution')
+	print(states)
+	filter(parsed, dataname + '_filtered.csv', 'Regions ofOccurrence', '5', *states)
 
 def download(url):
 	'''Downloads and returns a webpage'''
