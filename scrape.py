@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*- 
 # @File Name: scrape.py
-# @Created:   2017-09-20 04:25:27  seo (simon.seo@nyu.edu) 
-# @Updated:   2017-09-21 00:55:57  Simon Seo (simon.seo@nyu.edu)
+# @Created:   2017-09-19 04:25:27  seo (simon.seo@nyu.edu) 
 
 from urllib import request
 import csv
@@ -61,6 +60,7 @@ def parse(page, output_name):
 		for td in tds:
 			if i in req_idx:
 				data = td.text.strip()
+				data = 'N/A' if data in ['NA', '', 'No common name'] else data # unify expressions
 				row.append(data)
 			i += 1
 		writer.writerow(row)
@@ -70,8 +70,7 @@ def parse(page, output_name):
 	return output_name
 
 def filter(input_name, output_name, *args):
-	'''Clean up the csv file and add new columns 
-	that checks if each species satisfy a condition'''
+	'''Add new fields that checks if each datarow satisfy a condition'''
 
 	# Create CSV reader and writer
 	try:
