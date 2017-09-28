@@ -1,1 +1,5 @@
 public_html
+HW2_scrub/scrub
+*.zip
+*.pages
+*/.ipynb_checkpoints
