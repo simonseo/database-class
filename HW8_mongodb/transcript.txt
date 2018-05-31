@@ -1,0 +1,1311 @@
+MongoDB shell version: 3.2.0
+connecting to: class-mongodb.cims.nyu.edu:27017/ms9144
+> show collections
+dbw
+system.indexes
+> use dbw
+switched to db dbw
+> show collections
+2017-12-08T18:49:13.224-0500 E QUERY    [thread1] Error: listCollections failed: {
+	"ok" : 0,
+	"errmsg" : "not authorized on dbw to execute command { listCollections: 1.0, filter: {} }",
+	"code" : 13
+} :
+_getErrorWithCode@src/mongo/shell/utils.js:23:13
+DB.prototype._getCollectionInfosCommand@src/mongo/shell/db.js:746:1
+DB.prototype.getCollectionInfos@src/mongo/shell/db.js:758:15
+DB.prototype.getCollectionNames@src/mongo/shell/db.js:769:12
+shellHelper.show@src/mongo/shell/utils.js:694:9
+shellHelper@src/mongo/shell/utils.js:593:15
+@(shellhelp2):1:1
+
+> help
+	db.help()                    help on db methods
+	db.mycoll.help()             help on collection methods
+	sh.help()                    sharding helpers
+	rs.help()                    replica set helpers
+	help admin                   administrative help
+	help connect                 connecting to a db help
+	help keys                    key shortcuts
+	help misc                    misc things to know
+	help mr                      mapreduce
+
+	show dbs                     show database names
+	show collections             show collections in current database
+	show users                   show users in current database
+	show profile                 show most recent system.profile entries with time >= 1ms
+	show logs                    show the accessible logger names
+	show log [name]              prints out the last segment of log in memory, 'global' is default
+	use <db_name>                set current database
+	db.foo.find()                list objects in collection foo
+	db.foo.find( { a : 1 } )     list objects in foo where a == 1
+	it                           result of the last line evaluated; use to further iterate
+	DBQuery.shellBatchSize = x   set default number of items to display on shell
+	exit                         quit the mongo shell
+> show dbs
+2017-12-08T18:49:21.015-0500 E QUERY    [thread1] Error: listDatabases failed:{
+	"ok" : 0,
+	"errmsg" : "not authorized on admin to execute command { listDatabases: 1.0 }",
+	"code" : 13
+} :
+_getErrorWithCode@src/mongo/shell/utils.js:23:13
+Mongo.prototype.getDBs@src/mongo/shell/mongo.js:53:1
+shellHelper.show@src/mongo/shell/utils.js:699:19
+shellHelper@src/mongo/shell/utils.js:593:15
+@(shellhelp2):1:1
+
+> show collections
+2017-12-08T18:49:40.944-0500 E QUERY    [thread1] Error: listCollections failed: {
+	"ok" : 0,
+	"errmsg" : "not authorized on dbw to execute command { listCollections: 1.0, filter: {} }",
+	"code" : 13
+} :
+_getErrorWithCode@src/mongo/shell/utils.js:23:13
+DB.prototype._getCollectionInfosCommand@src/mongo/shell/db.js:746:1
+DB.prototype.getCollectionInfos@src/mongo/shell/db.js:758:15
+DB.prototype.getCollectionNames@src/mongo/shell/db.js:769:12
+shellHelper.show@src/mongo/shell/utils.js:694:9
+shellHelper@src/mongo/shell/utils.js:593:15
+@(shellhelp2):1:1
+
+> show users
+2017-12-08T18:49:49.518-0500 E QUERY    [thread1] Error: not authorized on dbw to execute command { usersInfo: 1.0 } :
+_getErrorWithCode@src/mongo/shell/utils.js:23:13
+DB.prototype.getUsers@src/mongo/shell/db.js:1466:1
+shellHelper.show@src/mongo/shell/utils.js:684:9
+shellHelper@src/mongo/shell/utils.js:593:15
+@(shellhelp2):1:1
+
+> use ms9144
+switched to db ms9144
+> show collections
+dbw
+system.indexes
+> dbw.find()
+2017-12-08T22:04:05.806-0500 E QUERY    [thread1] ReferenceError: dbw is not defined :
+@(shell):1:1
+
+> db.dbw.find()
+{ "_id" : "01002", "city" : "CUSHMAN", "loc" : [ -72.51565, 42.377017 ], "pop" : 36963, "state" : "MA" }
+{ "_id" : "01005", "city" : "BARRE", "loc" : [ -72.108354, 42.409698 ], "pop" : 4546, "state" : "MA" }
+{ "_id" : "01001", "city" : "AGAWAM", "loc" : [ -72.622739, 42.070206 ], "pop" : 15338, "state" : "MA" }
+{ "_id" : "01007", "city" : "BELCHERTOWN", "loc" : [ -72.410953, 42.275103 ], "pop" : 10579, "state" : "MA" }
+{ "_id" : "01008", "city" : "BLANDFORD", "loc" : [ -72.936114, 42.182949 ], "pop" : 1240, "state" : "MA" }
+{ "_id" : "01010", "city" : "BRIMFIELD", "loc" : [ -72.188455, 42.116543 ], "pop" : 3706, "state" : "MA" }
+{ "_id" : "01011", "city" : "CHESTER", "loc" : [ -72.988761, 42.279421 ], "pop" : 1688, "state" : "MA" }
+{ "_id" : "01012", "city" : "CHESTERFIELD", "loc" : [ -72.833309, 42.38167 ], "pop" : 177, "state" : "MA" }
+{ "_id" : "01013", "city" : "CHICOPEE", "loc" : [ -72.607962, 42.162046 ], "pop" : 23396, "state" : "MA" }
+{ "_id" : "01026", "city" : "CUMMINGTON", "loc" : [ -72.905767, 42.435296 ], "pop" : 1484, "state" : "MA" }
+{ "_id" : "01020", "city" : "CHICOPEE", "loc" : [ -72.576142, 42.176443 ], "pop" : 31495, "state" : "MA" }
+{ "_id" : "01022", "city" : "WESTOVER AFB", "loc" : [ -72.558657, 42.196672 ], "pop" : 1764, "state" : "MA" }
+{ "_id" : "01027", "city" : "MOUNT TOM", "loc" : [ -72.679921, 42.264319 ], "pop" : 16864, "state" : "MA" }
+{ "_id" : "01028", "city" : "EAST LONGMEADOW", "loc" : [ -72.505565, 42.067203 ], "pop" : 13367, "state" : "MA" }
+{ "_id" : "01030", "city" : "FEEDING HILLS", "loc" : [ -72.675077, 42.07182 ], "pop" : 11985, "state" : "MA" }
+{ "_id" : "01031", "city" : "GILBERTVILLE", "loc" : [ -72.198585, 42.332194 ], "pop" : 2385, "state" : "MA" }
+{ "_id" : "01033", "city" : "GRANBY", "loc" : [ -72.520001, 42.255704 ], "pop" : 5526, "state" : "MA" }
+{ "_id" : "01032", "city" : "GOSHEN", "loc" : [ -72.844092, 42.466234 ], "pop" : 122, "state" : "MA" }
+{ "_id" : "01034", "city" : "TOLLAND", "loc" : [ -72.908793, 42.070234 ], "pop" : 1652, "state" : "MA" }
+{ "_id" : "01035", "city" : "HADLEY", "loc" : [ -72.571499, 42.36062 ], "pop" : 4231, "state" : "MA" }
+Type "it" for more
+> db.dbw.find({"city":"NEW YORK"})
+{ "_id" : "10001", "city" : "NEW YORK", "loc" : [ -73.996705, 40.74838 ], "pop" : 18913, "state" : "NY" }
+{ "_id" : "10002", "city" : "NEW YORK", "loc" : [ -73.987681, 40.715231 ], "pop" : 84143, "state" : "NY" }
+{ "_id" : "10003", "city" : "NEW YORK", "loc" : [ -73.989223, 40.731253 ], "pop" : 51224, "state" : "NY" }
+{ "_id" : "10005", "city" : "NEW YORK", "loc" : [ -74.008344, 40.705649 ], "pop" : 202, "state" : "NY" }
+{ "_id" : "10006", "city" : "NEW YORK", "loc" : [ -74.013474, 40.708451 ], "pop" : 119, "state" : "NY" }
+{ "_id" : "10007", "city" : "NEW YORK", "loc" : [ -74.007022, 40.713905 ], "pop" : 3374, "state" : "NY" }
+{ "_id" : "10009", "city" : "NEW YORK", "loc" : [ -73.979591, 40.726188 ], "pop" : 57426, "state" : "NY" }
+{ "_id" : "10010", "city" : "NEW YORK", "loc" : [ -73.981328, 40.737476 ], "pop" : 24907, "state" : "NY" }
+{ "_id" : "10011", "city" : "NEW YORK", "loc" : [ -73.99963, 40.740225 ], "pop" : 46560, "state" : "NY" }
+{ "_id" : "10012", "city" : "NEW YORK", "loc" : [ -73.998284, 40.72553 ], "pop" : 26365, "state" : "NY" }
+{ "_id" : "10013", "city" : "NEW YORK", "loc" : [ -74.002529, 40.718511 ], "pop" : 21860, "state" : "NY" }
+{ "_id" : "10014", "city" : "NEW YORK", "loc" : [ -74.005421, 40.73393 ], "pop" : 31147, "state" : "NY" }
+{ "_id" : "10016", "city" : "NEW YORK", "loc" : [ -73.978134, 40.744281 ], "pop" : 51561, "state" : "NY" }
+{ "_id" : "10017", "city" : "NEW YORK", "loc" : [ -73.970661, 40.75172 ], "pop" : 12465, "state" : "NY" }
+{ "_id" : "10018", "city" : "NEW YORK", "loc" : [ -73.992503, 40.754713 ], "pop" : 4834, "state" : "NY" }
+{ "_id" : "10019", "city" : "NEW YORK", "loc" : [ -73.985834, 40.765069 ], "pop" : 36602, "state" : "NY" }
+{ "_id" : "10020", "city" : "NEW YORK", "loc" : [ -73.982347, 40.759729 ], "pop" : 393, "state" : "NY" }
+{ "_id" : "10021", "city" : "NEW YORK", "loc" : [ -73.958805, 40.768476 ], "pop" : 106564, "state" : "NY" }
+{ "_id" : "10022", "city" : "NEW YORK", "loc" : [ -73.965703, 40.757091 ], "pop" : 31870, "state" : "NY" }
+{ "_id" : "10023", "city" : "NEW YORK", "loc" : [ -73.982652, 40.77638 ], "pop" : 57385, "state" : "NY" }
+Type "it" for more
+> db.dbw.find({"_id":{$gt:10000}})
+> db.dbw.find({"_id":{$gt:"10000"}})
+{ "_id" : "10001", "city" : "NEW YORK", "loc" : [ -73.996705, 40.74838 ], "pop" : 18913, "state" : "NY" }
+{ "_id" : "10002", "city" : "NEW YORK", "loc" : [ -73.987681, 40.715231 ], "pop" : 84143, "state" : "NY" }
+{ "_id" : "10003", "city" : "NEW YORK", "loc" : [ -73.989223, 40.731253 ], "pop" : 51224, "state" : "NY" }
+{ "_id" : "10004", "city" : "GOVERNORS ISLAND", "loc" : [ -74.019025, 40.693604 ], "pop" : 3593, "state" : "NY" }
+{ "_id" : "10005", "city" : "NEW YORK", "loc" : [ -74.008344, 40.705649 ], "pop" : 202, "state" : "NY" }
+{ "_id" : "10006", "city" : "NEW YORK", "loc" : [ -74.013474, 40.708451 ], "pop" : 119, "state" : "NY" }
+{ "_id" : "10007", "city" : "NEW YORK", "loc" : [ -74.007022, 40.713905 ], "pop" : 3374, "state" : "NY" }
+{ "_id" : "10009", "city" : "NEW YORK", "loc" : [ -73.979591, 40.726188 ], "pop" : 57426, "state" : "NY" }
+{ "_id" : "10010", "city" : "NEW YORK", "loc" : [ -73.981328, 40.737476 ], "pop" : 24907, "state" : "NY" }
+{ "_id" : "10011", "city" : "NEW YORK", "loc" : [ -73.99963, 40.740225 ], "pop" : 46560, "state" : "NY" }
+{ "_id" : "10012", "city" : "NEW YORK", "loc" : [ -73.998284, 40.72553 ], "pop" : 26365, "state" : "NY" }
+{ "_id" : "10013", "city" : "NEW YORK", "loc" : [ -74.002529, 40.718511 ], "pop" : 21860, "state" : "NY" }
+{ "_id" : "10014", "city" : "NEW YORK", "loc" : [ -74.005421, 40.73393 ], "pop" : 31147, "state" : "NY" }
+{ "_id" : "10016", "city" : "NEW YORK", "loc" : [ -73.978134, 40.744281 ], "pop" : 51561, "state" : "NY" }
+{ "_id" : "10017", "city" : "NEW YORK", "loc" : [ -73.970661, 40.75172 ], "pop" : 12465, "state" : "NY" }
+{ "_id" : "10018", "city" : "NEW YORK", "loc" : [ -73.992503, 40.754713 ], "pop" : 4834, "state" : "NY" }
+{ "_id" : "10019", "city" : "NEW YORK", "loc" : [ -73.985834, 40.765069 ], "pop" : 36602, "state" : "NY" }
+{ "_id" : "10020", "city" : "NEW YORK", "loc" : [ -73.982347, 40.759729 ], "pop" : 393, "state" : "NY" }
+{ "_id" : "10021", "city" : "NEW YORK", "loc" : [ -73.958805, 40.768476 ], "pop" : 106564, "state" : "NY" }
+{ "_id" : "10022", "city" : "NEW YORK", "loc" : [ -73.965703, 40.757091 ], "pop" : 31870, "state" : "NY" }
+Type "it" for more
+> db.dbw.aggregate()
+{ "_id" : "01002", "city" : "CUSHMAN", "loc" : [ -72.51565, 42.377017 ], "pop" : 36963, "state" : "MA" }
+{ "_id" : "01005", "city" : "BARRE", "loc" : [ -72.108354, 42.409698 ], "pop" : 4546, "state" : "MA" }
+{ "_id" : "01001", "city" : "AGAWAM", "loc" : [ -72.622739, 42.070206 ], "pop" : 15338, "state" : "MA" }
+{ "_id" : "01007", "city" : "BELCHERTOWN", "loc" : [ -72.410953, 42.275103 ], "pop" : 10579, "state" : "MA" }
+{ "_id" : "01008", "city" : "BLANDFORD", "loc" : [ -72.936114, 42.182949 ], "pop" : 1240, "state" : "MA" }
+{ "_id" : "01010", "city" : "BRIMFIELD", "loc" : [ -72.188455, 42.116543 ], "pop" : 3706, "state" : "MA" }
+{ "_id" : "01011", "city" : "CHESTER", "loc" : [ -72.988761, 42.279421 ], "pop" : 1688, "state" : "MA" }
+{ "_id" : "01012", "city" : "CHESTERFIELD", "loc" : [ -72.833309, 42.38167 ], "pop" : 177, "state" : "MA" }
+{ "_id" : "01013", "city" : "CHICOPEE", "loc" : [ -72.607962, 42.162046 ], "pop" : 23396, "state" : "MA" }
+{ "_id" : "01026", "city" : "CUMMINGTON", "loc" : [ -72.905767, 42.435296 ], "pop" : 1484, "state" : "MA" }
+{ "_id" : "01020", "city" : "CHICOPEE", "loc" : [ -72.576142, 42.176443 ], "pop" : 31495, "state" : "MA" }
+{ "_id" : "01022", "city" : "WESTOVER AFB", "loc" : [ -72.558657, 42.196672 ], "pop" : 1764, "state" : "MA" }
+{ "_id" : "01027", "city" : "MOUNT TOM", "loc" : [ -72.679921, 42.264319 ], "pop" : 16864, "state" : "MA" }
+{ "_id" : "01028", "city" : "EAST LONGMEADOW", "loc" : [ -72.505565, 42.067203 ], "pop" : 13367, "state" : "MA" }
+{ "_id" : "01030", "city" : "FEEDING HILLS", "loc" : [ -72.675077, 42.07182 ], "pop" : 11985, "state" : "MA" }
+{ "_id" : "01031", "city" : "GILBERTVILLE", "loc" : [ -72.198585, 42.332194 ], "pop" : 2385, "state" : "MA" }
+{ "_id" : "01033", "city" : "GRANBY", "loc" : [ -72.520001, 42.255704 ], "pop" : 5526, "state" : "MA" }
+{ "_id" : "01032", "city" : "GOSHEN", "loc" : [ -72.844092, 42.466234 ], "pop" : 122, "state" : "MA" }
+{ "_id" : "01034", "city" : "TOLLAND", "loc" : [ -72.908793, 42.070234 ], "pop" : 1652, "state" : "MA" }
+{ "_id" : "01035", "city" : "HADLEY", "loc" : [ -72.571499, 42.36062 ], "pop" : 4231, "state" : "MA" }
+Type "it" for more
+> db.dbw.aggregate({})
+assert: command failed: {
+	"ok" : 0,
+	"errmsg" : "A pipeline stage specification object must contain exactly one field.",
+	"code" : 16435
+} : aggregate failed
+_getErrorWithCode@src/mongo/shell/utils.js:23:13
+doassert@src/mongo/shell/assert.js:13:14
+assert.commandWorked@src/mongo/shell/assert.js:266:5
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1215:5
+@(shell):1:1
+
+2017-12-08T22:08:10.903-0500 E QUERY    [thread1] Error: command failed: {
+	"ok" : 0,
+	"errmsg" : "A pipeline stage specification object must contain exactly one field.",
+	"code" : 16435
+} : aggregate failed :
+_getErrorWithCode@src/mongo/shell/utils.js:23:13
+doassert@src/mongo/shell/assert.js:13:14
+assert.commandWorked@src/mongo/shell/assert.js:266:5
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1215:5
+@(shell):1:1
+
+> db.dbw.aggregate([{$group:{"city":"$city","count":$sum:1}}])
+2017-12-08T22:09:21.459-0500 E QUERY    [thread1] SyntaxError: missing } after property list @(shell):1:54
+
+> db.dbw.aggregate([{$group:{"city":"$city","count":$sum:1}}]);
+2017-12-08T22:09:30.522-0500 E QUERY    [thread1] SyntaxError: missing } after property list @(shell):1:54
+
+> db.dbw.aggregate([{$group:{"city":"$city","count":{$sum:1}}}]);
+assert: command failed: {
+	"ok" : 0,
+	"errmsg" : "the group aggregate field 'city' must be defined as an expression inside an object",
+	"code" : 15951
+} : aggregate failed
+_getErrorWithCode@src/mongo/shell/utils.js:23:13
+doassert@src/mongo/shell/assert.js:13:14
+assert.commandWorked@src/mongo/shell/assert.js:266:5
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1215:5
+@(shell):1:1
+
+2017-12-08T22:10:01.975-0500 E QUERY    [thread1] Error: command failed: {
+	"ok" : 0,
+	"errmsg" : "the group aggregate field 'city' must be defined as an expression inside an object",
+	"code" : 15951
+} : aggregate failed :
+_getErrorWithCode@src/mongo/shell/utils.js:23:13
+doassert@src/mongo/shell/assert.js:13:14
+assert.commandWorked@src/mongo/shell/assert.js:266:5
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1215:5
+@(shell):1:1
+
+> db.dbw.aggregate([{$group:{"_id":"$city","count":{$sum:1}}}])
+{ "_id" : "POINT BAKER", "count" : 1 }
+{ "_id" : "METLAKATLA", "count" : 1 }
+{ "_id" : "HYDABURG", "count" : 1 }
+{ "_id" : "KETCHIKAN", "count" : 2 }
+{ "_id" : "HOONAH", "count" : 1 }
+{ "_id" : "GUSTAVUS", "count" : 1 }
+{ "_id" : "NUIQSUT", "count" : 1 }
+{ "_id" : "CHALKYITSIK", "count" : 1 }
+{ "_id" : "BREVIG MISSION", "count" : 1 }
+{ "_id" : "VENETIE", "count" : 1 }
+{ "_id" : "BORDER", "count" : 1 }
+{ "_id" : "TELLER", "count" : 1 }
+{ "_id" : "STEVENS VILLAGE", "count" : 1 }
+{ "_id" : "SHISHMAREF", "count" : 1 }
+{ "_id" : "SHAKTOOLIK", "count" : 1 }
+{ "_id" : "SAVOONGA", "count" : 1 }
+{ "_id" : "RAMPART", "count" : 1 }
+{ "_id" : "NULATO", "count" : 1 }
+{ "_id" : "NOORVIK", "count" : 1 }
+{ "_id" : "NENANA", "count" : 1 }
+Type "it" for more
+> db.dbw.find({"state":"NY"}).aggregate([{$group:{"_id":"$city","count":{$sum:1}}}])
+2017-12-08T22:11:23.018-0500 E QUERY    [thread1] TypeError: db.dbw.find(...).aggregate is not a function :
+@(shell):1:1
+
+> db.dbw.aggregate([{$group:{"_id":"$city","state":"$state","count":{$sum:1}}}])
+assert: command failed: {
+	"ok" : 0,
+	"errmsg" : "the group aggregate field 'state' must be defined as an expression inside an object",
+	"code" : 15951
+} : aggregate failed
+_getErrorWithCode@src/mongo/shell/utils.js:23:13
+doassert@src/mongo/shell/assert.js:13:14
+assert.commandWorked@src/mongo/shell/assert.js:266:5
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1215:5
+@(shell):1:1
+
+2017-12-08T22:11:59.592-0500 E QUERY    [thread1] Error: command failed: {
+	"ok" : 0,
+	"errmsg" : "the group aggregate field 'state' must be defined as an expression inside an object",
+	"code" : 15951
+} : aggregate failed :
+_getErrorWithCode@src/mongo/shell/utils.js:23:13
+doassert@src/mongo/shell/assert.js:13:14
+assert.commandWorked@src/mongo/shell/assert.js:266:5
+DBCollection.prototype.aggregate@src/mongo/shell/collection.js:1215:5
+@(shell):1:1
+
+> db.dbw.aggregate([{$group:{"_id":"$city","count":{$sum:1}}}])
+{ "_id" : "POINT BAKER", "count" : 1 }
+{ "_id" : "METLAKATLA", "count" : 1 }
+{ "_id" : "HYDABURG", "count" : 1 }
+{ "_id" : "KETCHIKAN", "count" : 2 }
+{ "_id" : "HOONAH", "count" : 1 }
+{ "_id" : "GUSTAVUS", "count" : 1 }
+{ "_id" : "NUIQSUT", "count" : 1 }
+{ "_id" : "CHALKYITSIK", "count" : 1 }
+{ "_id" : "BREVIG MISSION", "count" : 1 }
+{ "_id" : "VENETIE", "count" : 1 }
+{ "_id" : "BORDER", "count" : 1 }
+{ "_id" : "TELLER", "count" : 1 }
+{ "_id" : "STEVENS VILLAGE", "count" : 1 }
+{ "_id" : "SHISHMAREF", "count" : 1 }
+{ "_id" : "SHAKTOOLIK", "count" : 1 }
+{ "_id" : "SAVOONGA", "count" : 1 }
+{ "_id" : "RAMPART", "count" : 1 }
+{ "_id" : "NULATO", "count" : 1 }
+{ "_id" : "NOORVIK", "count" : 1 }
+{ "_id" : "NENANA", "count" : 1 }
+Type "it" for more
+> db.dbw.aggregate([{$group:{"_id":"$_id","count":{$sum:1}}}])
+{ "_id" : "99950", "count" : 1 }
+{ "_id" : "99927", "count" : 1 }
+{ "_id" : "99926", "count" : 1 }
+{ "_id" : "99923", "count" : 1 }
+{ "_id" : "99925", "count" : 1 }
+{ "_id" : "99921", "count" : 1 }
+{ "_id" : "99835", "count" : 1 }
+{ "_id" : "99833", "count" : 1 }
+{ "_id" : "99783", "count" : 1 }
+{ "_id" : "99778", "count" : 1 }
+{ "_id" : "99774", "count" : 1 }
+{ "_id" : "99773", "count" : 1 }
+{ "_id" : "99772", "count" : 1 }
+{ "_id" : "99770", "count" : 1 }
+{ "_id" : "99768", "count" : 1 }
+{ "_id" : "99767", "count" : 1 }
+{ "_id" : "99761", "count" : 1 }
+{ "_id" : "99759", "count" : 1 }
+{ "_id" : "99757", "count" : 1 }
+{ "_id" : "99756", "count" : 1 }
+Type "it" for more
+> db.dbw.aggregate(
+... [
+... {
+... $group: {"_id":"$_id","count":{$sum:1}}}]) #
+2017-12-08T22:16:10.122-0500 E QUERY    [thread1] SyntaxError: illegal character @(shell):4:43
+
+> db.dbw.aggregate( [ { $group: {"_id":"$_id","count":{$sum:1}}}]) 
+{ "_id" : "99950", "count" : 1 }
+{ "_id" : "99927", "count" : 1 }
+{ "_id" : "99926", "count" : 1 }
+{ "_id" : "99923", "count" : 1 }
+{ "_id" : "99925", "count" : 1 }
+{ "_id" : "99921", "count" : 1 }
+{ "_id" : "99835", "count" : 1 }
+{ "_id" : "99833", "count" : 1 }
+{ "_id" : "99783", "count" : 1 }
+{ "_id" : "99778", "count" : 1 }
+{ "_id" : "99774", "count" : 1 }
+{ "_id" : "99773", "count" : 1 }
+{ "_id" : "99772", "count" : 1 }
+{ "_id" : "99770", "count" : 1 }
+{ "_id" : "99768", "count" : 1 }
+{ "_id" : "99767", "count" : 1 }
+{ "_id" : "99761", "count" : 1 }
+{ "_id" : "99759", "count" : 1 }
+{ "_id" : "99757", "count" : 1 }
+{ "_id" : "99756", "count" : 1 }
+Type "it" for more
+> db.dbw.aggregate( [ { $group: {"_id":"$state","count":{$sum:1}}}])
+{ "_id" : "AK", "count" : 195 }
+{ "_id" : "AZ", "count" : 270 }
+{ "_id" : "UT", "count" : 205 }
+{ "_id" : "WY", "count" : 140 }
+{ "_id" : "CO", "count" : 414 }
+{ "_id" : "ID", "count" : 244 }
+{ "_id" : "OK", "count" : 586 }
+{ "_id" : "AR", "count" : 578 }
+{ "_id" : "LA", "count" : 464 }
+{ "_id" : "NV", "count" : 104 }
+{ "_id" : "NE", "count" : 574 }
+{ "_id" : "KS", "count" : 715 }
+{ "_id" : "MO", "count" : 994 }
+{ "_id" : "IL", "count" : 1237 }
+{ "_id" : "OH", "count" : 1007 }
+{ "_id" : "KY", "count" : 809 }
+{ "_id" : "IN", "count" : 676 }
+{ "_id" : "WI", "count" : 716 }
+{ "_id" : "HI", "count" : 80 }
+{ "_id" : "MS", "count" : 363 }
+Type "it" for more
+> db.dbw.aggregate(
+...    [
+...      { $match: { "state": "NY" } },
+...      { $group: { "_id": "$state" , "count": { $sum: 1 } } }
+...    ]
+... );
+{ "_id" : "NY", "count" : 1595 }
+> 
+> db.dbw.find({"state" : "GA", "pop" : {"$gt" : 0}})
+{ "_id" : "30002", "city" : "AVONDALE ESTATES", "loc" : [ -84.260691, 33.771727 ], "pop" : 4459, "state" : "GA" }
+{ "_id" : "30001", "city" : "AUSTELL", "loc" : [ -84.605026, 33.807226 ], "pop" : 25021, "state" : "GA" }
+{ "_id" : "30021", "city" : "CLARKSTON", "loc" : [ -84.238825, 33.810107 ], "pop" : 17325, "state" : "GA" }
+{ "_id" : "30030", "city" : "DECATUR", "loc" : [ -84.295044, 33.769883 ], "pop" : 23185, "state" : "GA" }
+{ "_id" : "30027", "city" : "CONLEY", "loc" : [ -84.327571, 33.645104 ], "pop" : 6815, "state" : "GA" }
+{ "_id" : "30032", "city" : "DECATUR", "loc" : [ -84.263165, 33.740825 ], "pop" : 56056, "state" : "GA" }
+{ "_id" : "30033", "city" : "DECATUR", "loc" : [ -84.281918, 33.812305 ], "pop" : 22071, "state" : "GA" }
+{ "_id" : "30035", "city" : "DECATUR", "loc" : [ -84.2143, 33.72784 ], "pop" : 15062, "state" : "GA" }
+{ "_id" : "30034", "city" : "DECATUR", "loc" : [ -84.248939, 33.695385 ], "pop" : 32312, "state" : "GA" }
+{ "_id" : "30049", "city" : "ELLENWOOD", "loc" : [ -84.264333, 33.635376 ], "pop" : 16742, "state" : "GA" }
+{ "_id" : "30050", "city" : "FOREST PARK", "loc" : [ -84.367075, 33.609737 ], "pop" : 26825, "state" : "GA" }
+{ "_id" : "30057", "city" : "LITHIA SPRINGS", "loc" : [ -84.66081, 33.772999 ], "pop" : 14533, "state" : "GA" }
+{ "_id" : "30058", "city" : "CENTERVILLE GWIN", "loc" : [ -84.099291, 33.746412 ], "pop" : 37322, "state" : "GA" }
+{ "_id" : "30038", "city" : "LITHONIA", "loc" : [ -84.160997, 33.682311 ], "pop" : 15583, "state" : "GA" }
+{ "_id" : "30059", "city" : "MABLETON", "loc" : [ -84.565062, 33.816572 ], "pop" : 22519, "state" : "GA" }
+{ "_id" : "30060", "city" : "MARIETTA", "loc" : [ -84.564881, 33.909199 ], "pop" : 52530, "state" : "GA" }
+{ "_id" : "30062", "city" : "MARIETTA", "loc" : [ -84.463291, 34.002521 ], "pop" : 52642, "state" : "GA" }
+{ "_id" : "30064", "city" : "MARIETTA", "loc" : [ -84.607584, 33.934285 ], "pop" : 30260, "state" : "GA" }
+{ "_id" : "30066", "city" : "MARIETTA", "loc" : [ -84.503817, 34.037807 ], "pop" : 41948, "state" : "GA" }
+{ "_id" : "30067", "city" : "MARIETTA", "loc" : [ -84.473251, 33.928198 ], "pop" : 40460, "state" : "GA" }
+Type "it" for more
+> db.dbw.find({"state" : "GA", "pop" : {"$eq" : 0}})
+{ "_id" : "30334", "city" : "ATLANTA", "loc" : [ -84.388188, 33.74715 ], "pop" : 0, "state" : "GA" }
+{ "_id" : "31314", "city" : "FORT STEWART", "loc" : [ -81.440489, 31.979085 ], "pop" : 0, "state" : "GA" }
+> db.dbw.find(
+...   {"state" : "GA", "pop" : {"$gt" : 0}}
+... ).sort(
+...   {"pop" : 1}
+... )
+{ "_id" : "30346", "city" : "ATLANTA", "loc" : [ -84.333354, 33.926717 ], "pop" : 18, "state" : "GA" }
+{ "_id" : "30148", "city" : "MARBLE HILL", "loc" : [ -84.337151, 34.415353 ], "pop" : 98, "state" : "GA" }
+{ "_id" : "31743", "city" : "DE SOTO", "loc" : [ -84.027101, 31.950186 ], "pop" : 112, "state" : "GA" }
+{ "_id" : "31327", "city" : "SAPELO ISLAND", "loc" : [ -81.267933, 31.421948 ], "pop" : 120, "state" : "GA" }
+{ "_id" : "31066", "city" : "MUSELLA", "loc" : [ -84.045591, 32.820228 ], "pop" : 121, "state" : "GA" }
+{ "_id" : "30326", "city" : "ATLANTA", "loc" : [ -84.358232, 33.848168 ], "pop" : 125, "state" : "GA" }
+{ "_id" : "30816", "city" : "KEYSVILLE", "loc" : [ -82.183368, 33.17191 ], "pop" : 135, "state" : "GA" }
+{ "_id" : "31772", "city" : "OAKFIELD", "loc" : [ -83.97059, 31.779768 ], "pop" : 149, "state" : "GA" }
+{ "_id" : "30454", "city" : "ROCKLEDGE", "loc" : [ -82.747939, 32.391507 ], "pop" : 160, "state" : "GA" }
+{ "_id" : "31081", "city" : "RUPERT", "loc" : [ -84.273753, 32.432524 ], "pop" : 208, "state" : "GA" }
+{ "_id" : "31756", "city" : "HARTSFIELD", "loc" : [ -83.970364, 31.217316 ], "pop" : 285, "state" : "GA" }
+{ "_id" : "30805", "city" : "BLYTHE", "loc" : [ -82.203044, 33.294088 ], "pop" : 297, "state" : "GA" }
+{ "_id" : "31771", "city" : "NORMAN PARK", "loc" : [ -83.94044, 31.069128 ], "pop" : 301, "state" : "GA" }
+{ "_id" : "30539", "city" : "EAST ELLIJAY", "loc" : [ -84.473062, 34.682636 ], "pop" : 314, "state" : "GA" }
+{ "_id" : "31058", "city" : "MAUK", "loc" : [ -84.399906, 32.509016 ], "pop" : 319, "state" : "GA" }
+{ "_id" : "30537", "city" : "SKY VALLEY", "loc" : [ -83.380113, 34.979659 ], "pop" : 328, "state" : "GA" }
+{ "_id" : "31565", "city" : "WAVERLY", "loc" : [ -81.56967, 31.042672 ], "pop" : 331, "state" : "GA" }
+{ "_id" : "30285", "city" : "THE ROCK", "loc" : [ -84.242359, 32.971734 ], "pop" : 333, "state" : "GA" }
+{ "_id" : "30552", "city" : "LAKEMONT", "loc" : [ -83.403763, 34.761697 ], "pop" : 338, "state" : "GA" }
+{ "_id" : "31736", "city" : "COLEMAN", "loc" : [ -84.874471, 31.656831 ], "pop" : 359, "state" : "GA" }
+Type "it" for more
+> db.dbw.find(
+...   {"state" : "GA", "pop" : {"$gt" : 0}}
+... ).sort(
+...   {"pop" : 1}
+... ).limit(5)
+{ "_id" : "30346", "city" : "ATLANTA", "loc" : [ -84.333354, 33.926717 ], "pop" : 18, "state" : "GA" }
+{ "_id" : "30148", "city" : "MARBLE HILL", "loc" : [ -84.337151, 34.415353 ], "pop" : 98, "state" : "GA" }
+{ "_id" : "31743", "city" : "DE SOTO", "loc" : [ -84.027101, 31.950186 ], "pop" : 112, "state" : "GA" }
+{ "_id" : "31327", "city" : "SAPELO ISLAND", "loc" : [ -81.267933, 31.421948 ], "pop" : 120, "state" : "GA" }
+{ "_id" : "31066", "city" : "MUSELLA", "loc" : [ -84.045591, 32.820228 ], "pop" : 121, "state" : "GA" }
+> 
+> db.dbw.find(
+...   {"state" : "GA", "pop" : {"$gt" : 0}},
+...   {"state" : 1, "pop" : 1}
+... ).sort(
+...   {"pop" : 1}
+... ).limit(5)
+{ "_id" : "30346", "pop" : 18, "state" : "GA" }
+{ "_id" : "30148", "pop" : 98, "state" : "GA" }
+{ "_id" : "31743", "pop" : 112, "state" : "GA" }
+{ "_id" : "31327", "pop" : 120, "state" : "GA" }
+{ "_id" : "31066", "pop" : 121, "state" : "GA" }
+> 
+> 
+> db.dbw.find(
+...   {"state" : "GA", "pop" : {"$gt" : 0}},
+...   {"loc" : 0}
+... ).sort(
+...   {"pop" : 1}
+... ).limit(5)
+{ "_id" : "30346", "city" : "ATLANTA", "pop" : 18, "state" : "GA" }
+{ "_id" : "30148", "city" : "MARBLE HILL", "pop" : 98, "state" : "GA" }
+{ "_id" : "31743", "city" : "DE SOTO", "pop" : 112, "state" : "GA" }
+{ "_id" : "31327", "city" : "SAPELO ISLAND", "pop" : 120, "state" : "GA" }
+{ "_id" : "31066", "city" : "MUSELLA", "pop" : 121, "state" : "GA" }
+> 
+> 
+> db.dbw.find(
+...   {"state" : "GA", "pop" : {"$gt" : 0}},
+...   {"loc" : 0}
+... ).sort(
+...   {"pop" : -1}
+... ).limit(5)
+{ "_id" : "30906", "city" : "PEACH ORCHARD", "pop" : 58646, "state" : "GA" }
+{ "_id" : "30032", "city" : "DECATUR", "pop" : 56056, "state" : "GA" }
+{ "_id" : "30236", "city" : "JONESBORO", "pop" : 55409, "state" : "GA" }
+{ "_id" : "31907", "city" : "COLUMBUS", "pop" : 54915, "state" : "GA" }
+{ "_id" : "30318", "city" : "ATLANTA", "pop" : 53894, "state" : "GA" }
+> db.dbw.find(
+...   {"city" : "THE BRONX"}
+... )
+> db.dbw.find(   {"city" : "BRONX"} )
+{ "_id" : "10451", "city" : "BRONX", "loc" : [ -73.921735, 40.8222 ], "pop" : 42854, "state" : "NY" }
+{ "_id" : "10452", "city" : "BRONX", "loc" : [ -73.921555, 40.837594 ], "pop" : 55890, "state" : "NY" }
+{ "_id" : "10453", "city" : "BRONX", "loc" : [ -73.912937, 40.852047 ], "pop" : 70544, "state" : "NY" }
+{ "_id" : "10454", "city" : "BRONX", "loc" : [ -73.919821, 40.808549 ], "pop" : 35994, "state" : "NY" }
+{ "_id" : "10455", "city" : "BRONX", "loc" : [ -73.907172, 40.815309 ], "pop" : 31882, "state" : "NY" }
+{ "_id" : "10456", "city" : "BRONX", "loc" : [ -73.909893, 40.831557 ], "pop" : 70157, "state" : "NY" }
+{ "_id" : "10457", "city" : "BRONX", "loc" : [ -73.899907, 40.848635 ], "pop" : 62133, "state" : "NY" }
+{ "_id" : "10458", "city" : "BRONX", "loc" : [ -73.889464, 40.863307 ], "pop" : 70612, "state" : "NY" }
+{ "_id" : "10459", "city" : "BRONX", "loc" : [ -73.894047, 40.824699 ], "pop" : 30983, "state" : "NY" }
+{ "_id" : "10460", "city" : "BRONX", "loc" : [ -73.879409, 40.840949 ], "pop" : 47250, "state" : "NY" }
+{ "_id" : "10461", "city" : "BRONX", "loc" : [ -73.840953, 40.846506 ], "pop" : 45273, "state" : "NY" }
+{ "_id" : "10462", "city" : "BRONX", "loc" : [ -73.860185, 40.843369 ], "pop" : 61478, "state" : "NY" }
+{ "_id" : "10463", "city" : "BRONX", "loc" : [ -73.906737, 40.879812 ], "pop" : 67435, "state" : "NY" }
+{ "_id" : "10464", "city" : "BRONX", "loc" : [ -73.787436, 40.846941 ], "pop" : 4113, "state" : "NY" }
+{ "_id" : "10465", "city" : "BRONX", "loc" : [ -73.819581, 40.826065 ], "pop" : 37457, "state" : "NY" }
+{ "_id" : "10467", "city" : "BRONX", "loc" : [ -73.871242, 40.873671 ], "pop" : 85710, "state" : "NY" }
+{ "_id" : "10466", "city" : "BRONX", "loc" : [ -73.850333, 40.890375 ], "pop" : 58394, "state" : "NY" }
+{ "_id" : "10468", "city" : "BRONX", "loc" : [ -73.900259, 40.866231 ], "pop" : 65854, "state" : "NY" }
+{ "_id" : "10469", "city" : "BRONX", "loc" : [ -73.849465, 40.870193 ], "pop" : 53962, "state" : "NY" }
+{ "_id" : "10470", "city" : "BRONX", "loc" : [ -73.862194, 40.900029 ], "pop" : 13254, "state" : "NY" }
+Type "it" for more
+> db.dbw.find(
+...   {"city" : "BRONX"},
+...   {"_id" : 1, "pop" : 1}
+... ).limit(3)
+{ "_id" : "10451", "pop" : 42854 }
+{ "_id" : "10452", "pop" : 55890 }
+{ "_id" : "10453", "pop" : 70544 }
+> db.dbw.aggregate(
+...   [
+...     { $group : { "_id" : "$state", "count": { $sum: 1 } }
+...   ]
+... )
+... 
+... 
+> 
+> 
+> 
+> 
+> db.dbw.aggregate(
+...   [
+...     { $match: {} },
+...     { $group : { "_id" : "$state", "count": { $sum: 1 } }
+...   ]
+... )
+... 
+... 
+> db.dbw.aggregate(
+...   [
+...     { $match: {} },
+...     { $group : { "_id" : "$state", "count": { $sum: 1 } } }
+...   ]
+... )
+{ "_id" : "AK", "count" : 195 }
+{ "_id" : "AZ", "count" : 270 }
+{ "_id" : "UT", "count" : 205 }
+{ "_id" : "WY", "count" : 140 }
+{ "_id" : "CO", "count" : 414 }
+{ "_id" : "ID", "count" : 244 }
+{ "_id" : "OK", "count" : 586 }
+{ "_id" : "AR", "count" : 578 }
+{ "_id" : "LA", "count" : 464 }
+{ "_id" : "NV", "count" : 104 }
+{ "_id" : "NE", "count" : 574 }
+{ "_id" : "KS", "count" : 715 }
+{ "_id" : "MO", "count" : 994 }
+{ "_id" : "IL", "count" : 1237 }
+{ "_id" : "OH", "count" : 1007 }
+{ "_id" : "KY", "count" : 809 }
+{ "_id" : "IN", "count" : 676 }
+{ "_id" : "WI", "count" : 716 }
+{ "_id" : "HI", "count" : 80 }
+{ "_id" : "MS", "count" : 363 }
+Type "it" for more
+> it
+{ "_id" : "IA", "count" : 922 }
+{ "_id" : "AL", "count" : 567 }
+{ "_id" : "FL", "count" : 804 }
+{ "_id" : "MI", "count" : 876 }
+{ "_id" : "OR", "count" : 384 }
+{ "_id" : "GA", "count" : 635 }
+{ "_id" : "NC", "count" : 705 }
+{ "_id" : "MT", "count" : 314 }
+{ "_id" : "ND", "count" : 391 }
+{ "_id" : "MD", "count" : 420 }
+{ "_id" : "MN", "count" : 882 }
+{ "_id" : "DC", "count" : 24 }
+{ "_id" : "DE", "count" : 53 }
+{ "_id" : "WV", "count" : 656 }
+{ "_id" : "NJ", "count" : 540 }
+{ "_id" : "TN", "count" : 582 }
+{ "_id" : "VA", "count" : 816 }
+{ "_id" : "NY", "count" : 1595 }
+{ "_id" : "WA", "count" : 484 }
+{ "_id" : "CT", "count" : 263 }
+Type "it" for more
+> it
+{ "_id" : "SC", "count" : 350 }
+{ "_id" : "PA", "count" : 1458 }
+{ "_id" : "VT", "count" : 243 }
+{ "_id" : "TX", "count" : 1671 }
+{ "_id" : "SD", "count" : 384 }
+{ "_id" : "NH", "count" : 218 }
+{ "_id" : "CA", "count" : 1516 }
+{ "_id" : "NM", "count" : 276 }
+{ "_id" : "RI", "count" : 69 }
+{ "_id" : "ME", "count" : 410 }
+{ "_id" : "MA", "count" : 474 }
+> db.dbw.aggregate(
+...   [
+...     { $match: {} },
+...     { $group : { "_id" : "$state", "count": { $sum: 1 } } },
+...     { $sort : { "_id" : 1 } }
+...   ]
+... )
+{ "_id" : "AK", "count" : 195 }
+{ "_id" : "AL", "count" : 567 }
+{ "_id" : "AR", "count" : 578 }
+{ "_id" : "AZ", "count" : 270 }
+{ "_id" : "CA", "count" : 1516 }
+{ "_id" : "CO", "count" : 414 }
+{ "_id" : "CT", "count" : 263 }
+{ "_id" : "DC", "count" : 24 }
+{ "_id" : "DE", "count" : 53 }
+{ "_id" : "FL", "count" : 804 }
+{ "_id" : "GA", "count" : 635 }
+{ "_id" : "HI", "count" : 80 }
+{ "_id" : "IA", "count" : 922 }
+{ "_id" : "ID", "count" : 244 }
+{ "_id" : "IL", "count" : 1237 }
+{ "_id" : "IN", "count" : 676 }
+{ "_id" : "KS", "count" : 715 }
+{ "_id" : "KY", "count" : 809 }
+{ "_id" : "LA", "count" : 464 }
+{ "_id" : "MA", "count" : 474 }
+Type "it" for more
+> it
+{ "_id" : "MD", "count" : 420 }
+{ "_id" : "ME", "count" : 410 }
+{ "_id" : "MI", "count" : 876 }
+{ "_id" : "MN", "count" : 882 }
+{ "_id" : "MO", "count" : 994 }
+{ "_id" : "MS", "count" : 363 }
+{ "_id" : "MT", "count" : 314 }
+{ "_id" : "NC", "count" : 705 }
+{ "_id" : "ND", "count" : 391 }
+{ "_id" : "NE", "count" : 574 }
+{ "_id" : "NH", "count" : 218 }
+{ "_id" : "NJ", "count" : 540 }
+{ "_id" : "NM", "count" : 276 }
+{ "_id" : "NV", "count" : 104 }
+{ "_id" : "NY", "count" : 1595 }
+{ "_id" : "OH", "count" : 1007 }
+{ "_id" : "OK", "count" : 586 }
+{ "_id" : "OR", "count" : 384 }
+{ "_id" : "PA", "count" : 1458 }
+{ "_id" : "RI", "count" : 69 }
+Type "it" for more
+> it
+{ "_id" : "SC", "count" : 350 }
+{ "_id" : "SD", "count" : 384 }
+{ "_id" : "TN", "count" : 582 }
+{ "_id" : "TX", "count" : 1671 }
+{ "_id" : "UT", "count" : 205 }
+{ "_id" : "VA", "count" : 816 }
+{ "_id" : "VT", "count" : 243 }
+{ "_id" : "WA", "count" : 484 }
+{ "_id" : "WI", "count" : 716 }
+{ "_id" : "WV", "count" : 656 }
+{ "_id" : "WY", "count" : 140 }
+> db.dbw.distinct("states")
+[ ]
+> db.dbw.distinct("state")
+[
+	"MA",
+	"RI",
+	"NH",
+	"ME",
+	"VT",
+	"CT",
+	"NY",
+	"NJ",
+	"PA",
+	"DE",
+	"DC",
+	"MD",
+	"VA",
+	"WV",
+	"NC",
+	"SC",
+	"GA",
+	"FL",
+	"AL",
+	"TN",
+	"MS",
+	"KY",
+	"OH",
+	"IN",
+	"MI",
+	"IA",
+	"WI",
+	"MN",
+	"SD",
+	"ND",
+	"MT",
+	"IL",
+	"MO",
+	"KS",
+	"NE",
+	"LA",
+	"AR",
+	"OK",
+	"TX",
+	"CO",
+	"WY",
+	"ID",
+	"UT",
+	"AZ",
+	"NM",
+	"NV",
+	"CA",
+	"HI",
+	"OR",
+	"WA",
+	"AK"
+]
+> db.dbw.find( { state: { $exists: true, $nin: [ "HI", "AK" ] } } )
+{ "_id" : "01002", "city" : "CUSHMAN", "loc" : [ -72.51565, 42.377017 ], "pop" : 36963, "state" : "MA" }
+{ "_id" : "01005", "city" : "BARRE", "loc" : [ -72.108354, 42.409698 ], "pop" : 4546, "state" : "MA" }
+{ "_id" : "01001", "city" : "AGAWAM", "loc" : [ -72.622739, 42.070206 ], "pop" : 15338, "state" : "MA" }
+{ "_id" : "01007", "city" : "BELCHERTOWN", "loc" : [ -72.410953, 42.275103 ], "pop" : 10579, "state" : "MA" }
+{ "_id" : "01008", "city" : "BLANDFORD", "loc" : [ -72.936114, 42.182949 ], "pop" : 1240, "state" : "MA" }
+{ "_id" : "01010", "city" : "BRIMFIELD", "loc" : [ -72.188455, 42.116543 ], "pop" : 3706, "state" : "MA" }
+{ "_id" : "01011", "city" : "CHESTER", "loc" : [ -72.988761, 42.279421 ], "pop" : 1688, "state" : "MA" }
+{ "_id" : "01012", "city" : "CHESTERFIELD", "loc" : [ -72.833309, 42.38167 ], "pop" : 177, "state" : "MA" }
+{ "_id" : "01013", "city" : "CHICOPEE", "loc" : [ -72.607962, 42.162046 ], "pop" : 23396, "state" : "MA" }
+{ "_id" : "01026", "city" : "CUMMINGTON", "loc" : [ -72.905767, 42.435296 ], "pop" : 1484, "state" : "MA" }
+{ "_id" : "01020", "city" : "CHICOPEE", "loc" : [ -72.576142, 42.176443 ], "pop" : 31495, "state" : "MA" }
+{ "_id" : "01022", "city" : "WESTOVER AFB", "loc" : [ -72.558657, 42.196672 ], "pop" : 1764, "state" : "MA" }
+{ "_id" : "01027", "city" : "MOUNT TOM", "loc" : [ -72.679921, 42.264319 ], "pop" : 16864, "state" : "MA" }
+{ "_id" : "01028", "city" : "EAST LONGMEADOW", "loc" : [ -72.505565, 42.067203 ], "pop" : 13367, "state" : "MA" }
+{ "_id" : "01030", "city" : "FEEDING HILLS", "loc" : [ -72.675077, 42.07182 ], "pop" : 11985, "state" : "MA" }
+{ "_id" : "01031", "city" : "GILBERTVILLE", "loc" : [ -72.198585, 42.332194 ], "pop" : 2385, "state" : "MA" }
+{ "_id" : "01033", "city" : "GRANBY", "loc" : [ -72.520001, 42.255704 ], "pop" : 5526, "state" : "MA" }
+{ "_id" : "01032", "city" : "GOSHEN", "loc" : [ -72.844092, 42.466234 ], "pop" : 122, "state" : "MA" }
+{ "_id" : "01034", "city" : "TOLLAND", "loc" : [ -72.908793, 42.070234 ], "pop" : 1652, "state" : "MA" }
+{ "_id" : "01035", "city" : "HADLEY", "loc" : [ -72.571499, 42.36062 ], "pop" : 4231, "state" : "MA" }
+Type "it" for more
+> db.dbw.find( { state: { $or: [{$exists: true}, {$nin: [ "HI", "AK" ]}] } } )
+Error: error: {
+	"waitedMS" : NumberLong(0),
+	"ok" : 0,
+	"errmsg" : "unknown operator: $or",
+	"code" : 2
+}
+> db.dbw.find( $or: [{ state: { $exists : false} }, { state : {$nin: [ "HI", "AK" ]} } ] )
+
+2017-12-09T02:47:47.654-0500 E QUERY    [thread1] SyntaxError: missing ) after argument list @(shell):1:16
+
+> db.dbw.find( {$or: [{ state: {$exists : false} }, { state : {$nin: ["HI", "AK"]} }]} )
+{ "_id" : "01002", "city" : "CUSHMAN", "loc" : [ -72.51565, 42.377017 ], "pop" : 36963, "state" : "MA" }
+{ "_id" : "01005", "city" : "BARRE", "loc" : [ -72.108354, 42.409698 ], "pop" : 4546, "state" : "MA" }
+{ "_id" : "01001", "city" : "AGAWAM", "loc" : [ -72.622739, 42.070206 ], "pop" : 15338, "state" : "MA" }
+{ "_id" : "01007", "city" : "BELCHERTOWN", "loc" : [ -72.410953, 42.275103 ], "pop" : 10579, "state" : "MA" }
+{ "_id" : "01008", "city" : "BLANDFORD", "loc" : [ -72.936114, 42.182949 ], "pop" : 1240, "state" : "MA" }
+{ "_id" : "01010", "city" : "BRIMFIELD", "loc" : [ -72.188455, 42.116543 ], "pop" : 3706, "state" : "MA" }
+{ "_id" : "01011", "city" : "CHESTER", "loc" : [ -72.988761, 42.279421 ], "pop" : 1688, "state" : "MA" }
+{ "_id" : "01012", "city" : "CHESTERFIELD", "loc" : [ -72.833309, 42.38167 ], "pop" : 177, "state" : "MA" }
+{ "_id" : "01013", "city" : "CHICOPEE", "loc" : [ -72.607962, 42.162046 ], "pop" : 23396, "state" : "MA" }
+{ "_id" : "01026", "city" : "CUMMINGTON", "loc" : [ -72.905767, 42.435296 ], "pop" : 1484, "state" : "MA" }
+{ "_id" : "01020", "city" : "CHICOPEE", "loc" : [ -72.576142, 42.176443 ], "pop" : 31495, "state" : "MA" }
+{ "_id" : "01022", "city" : "WESTOVER AFB", "loc" : [ -72.558657, 42.196672 ], "pop" : 1764, "state" : "MA" }
+{ "_id" : "01027", "city" : "MOUNT TOM", "loc" : [ -72.679921, 42.264319 ], "pop" : 16864, "state" : "MA" }
+{ "_id" : "01028", "city" : "EAST LONGMEADOW", "loc" : [ -72.505565, 42.067203 ], "pop" : 13367, "state" : "MA" }
+{ "_id" : "01030", "city" : "FEEDING HILLS", "loc" : [ -72.675077, 42.07182 ], "pop" : 11985, "state" : "MA" }
+{ "_id" : "01031", "city" : "GILBERTVILLE", "loc" : [ -72.198585, 42.332194 ], "pop" : 2385, "state" : "MA" }
+{ "_id" : "01033", "city" : "GRANBY", "loc" : [ -72.520001, 42.255704 ], "pop" : 5526, "state" : "MA" }
+{ "_id" : "01032", "city" : "GOSHEN", "loc" : [ -72.844092, 42.466234 ], "pop" : 122, "state" : "MA" }
+{ "_id" : "01034", "city" : "TOLLAND", "loc" : [ -72.908793, 42.070234 ], "pop" : 1652, "state" : "MA" }
+{ "_id" : "01035", "city" : "HADLEY", "loc" : [ -72.571499, 42.36062 ], "pop" : 4231, "state" : "MA" }
+Type "it" for more
+> db.dbw.find( { state: {$exists : true, $nin: ["HI", "AK"]} })
+{ "_id" : "01002", "city" : "CUSHMAN", "loc" : [ -72.51565, 42.377017 ], "pop" : 36963, "state" : "MA" }
+{ "_id" : "01005", "city" : "BARRE", "loc" : [ -72.108354, 42.409698 ], "pop" : 4546, "state" : "MA" }
+{ "_id" : "01001", "city" : "AGAWAM", "loc" : [ -72.622739, 42.070206 ], "pop" : 15338, "state" : "MA" }
+{ "_id" : "01007", "city" : "BELCHERTOWN", "loc" : [ -72.410953, 42.275103 ], "pop" : 10579, "state" : "MA" }
+{ "_id" : "01008", "city" : "BLANDFORD", "loc" : [ -72.936114, 42.182949 ], "pop" : 1240, "state" : "MA" }
+{ "_id" : "01010", "city" : "BRIMFIELD", "loc" : [ -72.188455, 42.116543 ], "pop" : 3706, "state" : "MA" }
+{ "_id" : "01011", "city" : "CHESTER", "loc" : [ -72.988761, 42.279421 ], "pop" : 1688, "state" : "MA" }
+{ "_id" : "01012", "city" : "CHESTERFIELD", "loc" : [ -72.833309, 42.38167 ], "pop" : 177, "state" : "MA" }
+{ "_id" : "01013", "city" : "CHICOPEE", "loc" : [ -72.607962, 42.162046 ], "pop" : 23396, "state" : "MA" }
+{ "_id" : "01026", "city" : "CUMMINGTON", "loc" : [ -72.905767, 42.435296 ], "pop" : 1484, "state" : "MA" }
+{ "_id" : "01020", "city" : "CHICOPEE", "loc" : [ -72.576142, 42.176443 ], "pop" : 31495, "state" : "MA" }
+{ "_id" : "01022", "city" : "WESTOVER AFB", "loc" : [ -72.558657, 42.196672 ], "pop" : 1764, "state" : "MA" }
+{ "_id" : "01027", "city" : "MOUNT TOM", "loc" : [ -72.679921, 42.264319 ], "pop" : 16864, "state" : "MA" }
+{ "_id" : "01028", "city" : "EAST LONGMEADOW", "loc" : [ -72.505565, 42.067203 ], "pop" : 13367, "state" : "MA" }
+{ "_id" : "01030", "city" : "FEEDING HILLS", "loc" : [ -72.675077, 42.07182 ], "pop" : 11985, "state" : "MA" }
+{ "_id" : "01031", "city" : "GILBERTVILLE", "loc" : [ -72.198585, 42.332194 ], "pop" : 2385, "state" : "MA" }
+{ "_id" : "01033", "city" : "GRANBY", "loc" : [ -72.520001, 42.255704 ], "pop" : 5526, "state" : "MA" }
+{ "_id" : "01032", "city" : "GOSHEN", "loc" : [ -72.844092, 42.466234 ], "pop" : 122, "state" : "MA" }
+{ "_id" : "01034", "city" : "TOLLAND", "loc" : [ -72.908793, 42.070234 ], "pop" : 1652, "state" : "MA" }
+{ "_id" : "01035", "city" : "HADLEY", "loc" : [ -72.571499, 42.36062 ], "pop" : 4231, "state" : "MA" }
+Type "it" for more
+> db.dbw.find( {$or: [{ state: {$exists : false} }, { state : {$in: ["HI", "AK"]} }]} )
+{ "_id" : "96701", "city" : "AIEA", "loc" : [ -157.933237, 21.390795 ], "pop" : 43273, "state" : "HI" }
+{ "_id" : "96704", "city" : "CAPTAIN COOK", "loc" : [ -155.887463, 19.438604 ], "pop" : 5338, "state" : "HI" }
+{ "_id" : "96705", "city" : "ELEELE", "loc" : [ -159.538115, 21.923017 ], "pop" : 6466, "state" : "HI" }
+{ "_id" : "96706", "city" : "EWA BEACH", "loc" : [ -158.010307, 21.327418 ], "pop" : 26089, "state" : "HI" }
+{ "_id" : "96707", "city" : "KAPOLEI", "loc" : [ -158.087007, 21.345284 ], "pop" : 15891, "state" : "HI" }
+{ "_id" : "96708", "city" : "HAIKU", "loc" : [ -156.299983, 20.907097 ], "pop" : 5695, "state" : "HI" }
+{ "_id" : "96710", "city" : "HAKALAU", "loc" : [ -155.133335, 19.888217 ], "pop" : 198, "state" : "HI" }
+{ "_id" : "96712", "city" : "HALEIWA", "loc" : [ -158.069315, 21.631151 ], "pop" : 7870, "state" : "HI" }
+{ "_id" : "96716", "city" : "HANAPEPE", "loc" : [ -159.592022, 21.915644 ], "pop" : 1523, "state" : "HI" }
+{ "_id" : "96717", "city" : "HAUULA", "loc" : [ -157.915704, 21.61395 ], "pop" : 3477, "state" : "HI" }
+{ "_id" : "96718", "city" : "HAWAII NATIONAL", "loc" : [ -155.284015, 19.431103 ], "pop" : 91, "state" : "HI" }
+{ "_id" : "96719", "city" : "HAWI", "loc" : [ -155.838007, 20.238021 ], "pop" : 1741, "state" : "HI" }
+{ "_id" : "96720", "city" : "HILO", "loc" : [ -155.093921, 19.702522 ], "pop" : 40158, "state" : "HI" }
+{ "_id" : "96722", "city" : "PRINCEVILLE", "loc" : [ -159.462587, 22.215948 ], "pop" : 4631, "state" : "HI" }
+{ "_id" : "96713", "city" : "HANA", "loc" : [ -156.039659, 20.761635 ], "pop" : 1895, "state" : "HI" }
+{ "_id" : "96725", "city" : "HOLUALOA", "loc" : [ -155.917639, 19.610316 ], "pop" : 2096, "state" : "HI" }
+{ "_id" : "96726", "city" : "HONAUNAU", "loc" : [ -155.893356, 19.44845 ], "pop" : 1583, "state" : "HI" }
+{ "_id" : "96727", "city" : "HONOKAA", "loc" : [ -155.488026, 20.08266 ], "pop" : 3681, "state" : "HI" }
+{ "_id" : "96728", "city" : "HONOMU", "loc" : [ -155.11766, 19.872767 ], "pop" : 548, "state" : "HI" }
+{ "_id" : "96729", "city" : "HOOLEHUA", "loc" : [ -157.079138, 21.173025 ], "pop" : 853, "state" : "HI" }
+Type "it" for more
+> db.dbw.find( { state: {$exists : false} })
+> db.dbw.aggregate(
+...   [
+...     { $match: { state: { $exists : true, $nin: ["HI", "AK"] } } },
+...     { $group : { "_id" : "$state", "count": { $sum: 1 } } },
+...     { $sort : { "_id" : 1 } }
+...   ]
+... )
+{ "_id" : "AL", "count" : 567 }
+{ "_id" : "AR", "count" : 578 }
+{ "_id" : "AZ", "count" : 270 }
+{ "_id" : "CA", "count" : 1516 }
+{ "_id" : "CO", "count" : 414 }
+{ "_id" : "CT", "count" : 263 }
+{ "_id" : "DC", "count" : 24 }
+{ "_id" : "DE", "count" : 53 }
+{ "_id" : "FL", "count" : 804 }
+{ "_id" : "GA", "count" : 635 }
+{ "_id" : "IA", "count" : 922 }
+{ "_id" : "ID", "count" : 244 }
+{ "_id" : "IL", "count" : 1237 }
+{ "_id" : "IN", "count" : 676 }
+{ "_id" : "KS", "count" : 715 }
+{ "_id" : "KY", "count" : 809 }
+{ "_id" : "LA", "count" : 464 }
+{ "_id" : "MA", "count" : 474 }
+{ "_id" : "MD", "count" : 420 }
+{ "_id" : "ME", "count" : 410 }
+Type "it" for more
+> it
+{ "_id" : "MI", "count" : 876 }
+{ "_id" : "MN", "count" : 882 }
+{ "_id" : "MO", "count" : 994 }
+{ "_id" : "MS", "count" : 363 }
+{ "_id" : "MT", "count" : 314 }
+{ "_id" : "NC", "count" : 705 }
+{ "_id" : "ND", "count" : 391 }
+{ "_id" : "NE", "count" : 574 }
+{ "_id" : "NH", "count" : 218 }
+{ "_id" : "NJ", "count" : 540 }
+{ "_id" : "NM", "count" : 276 }
+{ "_id" : "NV", "count" : 104 }
+{ "_id" : "NY", "count" : 1595 }
+{ "_id" : "OH", "count" : 1007 }
+{ "_id" : "OK", "count" : 586 }
+{ "_id" : "OR", "count" : 384 }
+{ "_id" : "PA", "count" : 1458 }
+{ "_id" : "RI", "count" : 69 }
+{ "_id" : "SC", "count" : 350 }
+{ "_id" : "SD", "count" : 384 }
+Type "it" for more
+> it
+{ "_id" : "TN", "count" : 582 }
+{ "_id" : "TX", "count" : 1671 }
+{ "_id" : "UT", "count" : 205 }
+{ "_id" : "VA", "count" : 816 }
+{ "_id" : "VT", "count" : 243 }
+{ "_id" : "WA", "count" : 484 }
+{ "_id" : "WI", "count" : 716 }
+{ "_id" : "WV", "count" : 656 }
+{ "_id" : "WY", "count" : 140 }
+> db.dbw.aggregate(
+...   [
+...     { $match: { state: { $exists : true, $nin: ["HI", "AK"] } } },
+...     { $group : { "_id" : null, "count": { $sum: 1 } } }
+...   ]
+... )
+{ "_id" : null, "count" : 29078 }
+> db.dbw.aggregate(
+...   [
+...     { $match: { state: { $exists : true, $in: ["NY", "NJ", "CT"] } } },
+...     { $group : { "_id" : null, "count": { $sum: 1 } } }
+...   ]
+... )
+{ "_id" : null, "count" : 2398 }
+> db.dbw.find(
+...   {"city" : "MANHATTAN"},
+...   {"_id" : 1, "pop" : 1}
+... ).limit(3)
+{ "_id" : "59741", "pop" : 3461 }
+{ "_id" : "60442", "pop" : 3657 }
+{ "_id" : "66502", "pop" : 50178 }
+> db.dbw.find(
+...   {"city" : "NEW YORK"},
+...   {"_id" : 1, "pop" : 1}
+... ).limit(3)
+{ "_id" : "10001", "pop" : 18913 }
+{ "_id" : "10002", "pop" : 84143 }
+{ "_id" : "10003", "pop" : 51224 }
+> db.dbw.find(
+...   {"city" : "NEW YORK"}
+... ).limit(3)
+{ "_id" : "10001", "city" : "NEW YORK", "loc" : [ -73.996705, 40.74838 ], "pop" : 18913, "state" : "NY" }
+{ "_id" : "10002", "city" : "NEW YORK", "loc" : [ -73.987681, 40.715231 ], "pop" : 84143, "state" : "NY" }
+{ "_id" : "10003", "city" : "NEW YORK", "loc" : [ -73.989223, 40.731253 ], "pop" : 51224, "state" : "NY" }
+> db.dbw.find(
+...   {"city" : "MANHATTAN"}
+... ).limit(3)
+{ "_id" : "59741", "city" : "MANHATTAN", "loc" : [ -111.314577, 45.79799 ], "pop" : 3461, "state" : "MT" }
+{ "_id" : "60442", "city" : "MANHATTAN", "loc" : [ -87.977133, 41.428883 ], "pop" : 3657, "state" : "IL" }
+{ "_id" : "66502", "city" : "MANHATTAN", "loc" : [ -96.585776, 39.193757 ], "pop" : 50178, "state" : "KS" }
+> db.dbw.find(
+...   {"city" : "BRONX"}
+... )
+{ "_id" : "10451", "city" : "BRONX", "loc" : [ -73.921735, 40.8222 ], "pop" : 42854, "state" : "NY" }
+{ "_id" : "10452", "city" : "BRONX", "loc" : [ -73.921555, 40.837594 ], "pop" : 55890, "state" : "NY" }
+{ "_id" : "10453", "city" : "BRONX", "loc" : [ -73.912937, 40.852047 ], "pop" : 70544, "state" : "NY" }
+{ "_id" : "10454", "city" : "BRONX", "loc" : [ -73.919821, 40.808549 ], "pop" : 35994, "state" : "NY" }
+{ "_id" : "10455", "city" : "BRONX", "loc" : [ -73.907172, 40.815309 ], "pop" : 31882, "state" : "NY" }
+{ "_id" : "10456", "city" : "BRONX", "loc" : [ -73.909893, 40.831557 ], "pop" : 70157, "state" : "NY" }
+{ "_id" : "10457", "city" : "BRONX", "loc" : [ -73.899907, 40.848635 ], "pop" : 62133, "state" : "NY" }
+{ "_id" : "10458", "city" : "BRONX", "loc" : [ -73.889464, 40.863307 ], "pop" : 70612, "state" : "NY" }
+{ "_id" : "10459", "city" : "BRONX", "loc" : [ -73.894047, 40.824699 ], "pop" : 30983, "state" : "NY" }
+{ "_id" : "10460", "city" : "BRONX", "loc" : [ -73.879409, 40.840949 ], "pop" : 47250, "state" : "NY" }
+{ "_id" : "10461", "city" : "BRONX", "loc" : [ -73.840953, 40.846506 ], "pop" : 45273, "state" : "NY" }
+{ "_id" : "10462", "city" : "BRONX", "loc" : [ -73.860185, 40.843369 ], "pop" : 61478, "state" : "NY" }
+{ "_id" : "10463", "city" : "BRONX", "loc" : [ -73.906737, 40.879812 ], "pop" : 67435, "state" : "NY" }
+{ "_id" : "10464", "city" : "BRONX", "loc" : [ -73.787436, 40.846941 ], "pop" : 4113, "state" : "NY" }
+{ "_id" : "10465", "city" : "BRONX", "loc" : [ -73.819581, 40.826065 ], "pop" : 37457, "state" : "NY" }
+{ "_id" : "10467", "city" : "BRONX", "loc" : [ -73.871242, 40.873671 ], "pop" : 85710, "state" : "NY" }
+{ "_id" : "10466", "city" : "BRONX", "loc" : [ -73.850333, 40.890375 ], "pop" : 58394, "state" : "NY" }
+{ "_id" : "10468", "city" : "BRONX", "loc" : [ -73.900259, 40.866231 ], "pop" : 65854, "state" : "NY" }
+{ "_id" : "10469", "city" : "BRONX", "loc" : [ -73.849465, 40.870193 ], "pop" : 53962, "state" : "NY" }
+{ "_id" : "10470", "city" : "BRONX", "loc" : [ -73.862194, 40.900029 ], "pop" : 13254, "state" : "NY" }
+Type "it" for more
+> db.dbw.find(
+...   {"city" : "BROOKLYN"}
+... ).limit(3)
+{ "_id" : "06234", "city" : "BROOKLYN", "loc" : [ -71.954129, 41.780747 ], "pop" : 4835, "state" : "CT" }
+{ "_id" : "11201", "city" : "BROOKLYN", "loc" : [ -73.99034, 40.694021 ], "pop" : 46980, "state" : "NY" }
+{ "_id" : "11203", "city" : "BROOKLYN", "loc" : [ -73.934888, 40.650496 ], "pop" : 80566, "state" : "NY" }
+> db.dbw.find(   {"city" : "QUEENS"} ).limit(3)
+> db.dbw.find(   {"city" : "RICHMOND", state: "NY"} ).limit(3)
+> db.dbw.find(   {"city" : "STATEN ISLAND", state: "NY"} ).limit(3)
+{ "_id" : "10301", "city" : "STATEN ISLAND", "loc" : [ -74.092663, 40.631602 ], "pop" : 35314, "state" : "NY" }
+{ "_id" : "10302", "city" : "STATEN ISLAND", "loc" : [ -74.137918, 40.630597 ], "pop" : 13369, "state" : "NY" }
+{ "_id" : "10303", "city" : "STATEN ISLAND", "loc" : [ -74.160679, 40.630062 ], "pop" : 17695, "state" : "NY" }
+> db.dbw.find(   {"city" : "KINGS", state: "NY"} ).limit(3)
+> db.dbw.find(   {_id:11412} ).limit(3)
+> db.dbw.find(   {_id:"11412"} ).limit(3)
+{ "_id" : "11412", "city" : "KEW GARDENS", "loc" : [ -73.758641, 40.698097 ], "pop" : 32003, "state" : "NY" }
+> db.dbw.find(
+...   { $or :
+...     [
+...       { _id : {$gte : "10000", $lte: "10499"} },
+...       { _id : {$gte : "11004", $lte: "11005"} },
+...       { _id : {$gte : "11100", $lte: "11499"} },
+...       { _id : {$gte : "11600", $lte: "11699"} }
+...     ]
+...   }
+... ).count()
+178
+> db.dbw.find(
+...   { $or :
+...     [
+...       { _id : {$gte : "10000", $lte: "10499"} },
+...       { _id : {$gte : "11004", $lte: "11005"} },
+...       { _id : {$gte : "11100", $lte: "11499"} },
+...       { _id : {$gte : "11600", $lte: "11699"} }
+...     ]
+...   }
+... )
+{ "_id" : "10001", "city" : "NEW YORK", "loc" : [ -73.996705, 40.74838 ], "pop" : 18913, "state" : "NY" }
+{ "_id" : "10002", "city" : "NEW YORK", "loc" : [ -73.987681, 40.715231 ], "pop" : 84143, "state" : "NY" }
+{ "_id" : "10003", "city" : "NEW YORK", "loc" : [ -73.989223, 40.731253 ], "pop" : 51224, "state" : "NY" }
+{ "_id" : "10004", "city" : "GOVERNORS ISLAND", "loc" : [ -74.019025, 40.693604 ], "pop" : 3593, "state" : "NY" }
+{ "_id" : "10005", "city" : "NEW YORK", "loc" : [ -74.008344, 40.705649 ], "pop" : 202, "state" : "NY" }
+{ "_id" : "10006", "city" : "NEW YORK", "loc" : [ -74.013474, 40.708451 ], "pop" : 119, "state" : "NY" }
+{ "_id" : "10007", "city" : "NEW YORK", "loc" : [ -74.007022, 40.713905 ], "pop" : 3374, "state" : "NY" }
+{ "_id" : "10009", "city" : "NEW YORK", "loc" : [ -73.979591, 40.726188 ], "pop" : 57426, "state" : "NY" }
+{ "_id" : "10010", "city" : "NEW YORK", "loc" : [ -73.981328, 40.737476 ], "pop" : 24907, "state" : "NY" }
+{ "_id" : "10011", "city" : "NEW YORK", "loc" : [ -73.99963, 40.740225 ], "pop" : 46560, "state" : "NY" }
+{ "_id" : "10012", "city" : "NEW YORK", "loc" : [ -73.998284, 40.72553 ], "pop" : 26365, "state" : "NY" }
+{ "_id" : "10013", "city" : "NEW YORK", "loc" : [ -74.002529, 40.718511 ], "pop" : 21860, "state" : "NY" }
+{ "_id" : "10014", "city" : "NEW YORK", "loc" : [ -74.005421, 40.73393 ], "pop" : 31147, "state" : "NY" }
+{ "_id" : "10016", "city" : "NEW YORK", "loc" : [ -73.978134, 40.744281 ], "pop" : 51561, "state" : "NY" }
+{ "_id" : "10017", "city" : "NEW YORK", "loc" : [ -73.970661, 40.75172 ], "pop" : 12465, "state" : "NY" }
+{ "_id" : "10018", "city" : "NEW YORK", "loc" : [ -73.992503, 40.754713 ], "pop" : 4834, "state" : "NY" }
+{ "_id" : "10019", "city" : "NEW YORK", "loc" : [ -73.985834, 40.765069 ], "pop" : 36602, "state" : "NY" }
+{ "_id" : "10020", "city" : "NEW YORK", "loc" : [ -73.982347, 40.759729 ], "pop" : 393, "state" : "NY" }
+{ "_id" : "10021", "city" : "NEW YORK", "loc" : [ -73.958805, 40.768476 ], "pop" : 106564, "state" : "NY" }
+{ "_id" : "10022", "city" : "NEW YORK", "loc" : [ -73.965703, 40.757091 ], "pop" : 31870, "state" : "NY" }
+Type "it" for more
+> it
+{ "_id" : "10023", "city" : "NEW YORK", "loc" : [ -73.982652, 40.77638 ], "pop" : 57385, "state" : "NY" }
+{ "_id" : "10024", "city" : "NEW YORK", "loc" : [ -73.976385, 40.786446 ], "pop" : 65141, "state" : "NY" }
+{ "_id" : "10025", "city" : "NEW YORK", "loc" : [ -73.968312, 40.797466 ], "pop" : 100027, "state" : "NY" }
+{ "_id" : "10026", "city" : "NEW YORK", "loc" : [ -73.953069, 40.801942 ], "pop" : 28453, "state" : "NY" }
+{ "_id" : "10027", "city" : "NEW YORK", "loc" : [ -73.954978, 40.811556 ], "pop" : 54631, "state" : "NY" }
+{ "_id" : "10028", "city" : "NEW YORK", "loc" : [ -73.952866, 40.776267 ], "pop" : 42757, "state" : "NY" }
+{ "_id" : "10029", "city" : "NEW YORK", "loc" : [ -73.94475, 40.791817 ], "pop" : 74643, "state" : "NY" }
+{ "_id" : "10030", "city" : "NEW YORK", "loc" : [ -73.942597, 40.818333 ], "pop" : 21132, "state" : "NY" }
+{ "_id" : "10031", "city" : "NEW YORK", "loc" : [ -73.950712, 40.82455 ], "pop" : 55989, "state" : "NY" }
+{ "_id" : "10032", "city" : "NEW YORK", "loc" : [ -73.941978, 40.83819 ], "pop" : 61332, "state" : "NY" }
+{ "_id" : "10033", "city" : "NEW YORK", "loc" : [ -73.935649, 40.84955 ], "pop" : 58648, "state" : "NY" }
+{ "_id" : "10034", "city" : "NEW YORK", "loc" : [ -73.922077, 40.866222 ], "pop" : 41131, "state" : "NY" }
+{ "_id" : "10035", "city" : "NEW YORK", "loc" : [ -73.937098, 40.801116 ], "pop" : 28099, "state" : "NY" }
+{ "_id" : "10036", "city" : "NEW YORK", "loc" : [ -73.991826, 40.759724 ], "pop" : 16748, "state" : "NY" }
+{ "_id" : "10037", "city" : "NEW YORK", "loc" : [ -73.9381, 40.813491 ], "pop" : 14982, "state" : "NY" }
+{ "_id" : "10038", "city" : "NEW YORK", "loc" : [ -74.001298, 40.710092 ], "pop" : 14015, "state" : "NY" }
+{ "_id" : "10039", "city" : "NEW YORK", "loc" : [ -73.938266, 40.826458 ], "pop" : 25293, "state" : "NY" }
+{ "_id" : "10040", "city" : "NEW YORK", "loc" : [ -73.929601, 40.858308 ], "pop" : 39780, "state" : "NY" }
+{ "_id" : "10044", "city" : "NEW YORK", "loc" : [ -73.949136, 40.762998 ], "pop" : 8190, "state" : "NY" }
+{ "_id" : "10128", "city" : "NEW YORK", "loc" : [ -73.951112, 40.781618 ], "pop" : 52311, "state" : "NY" }
+Type "it" for more
+> it
+{ "_id" : "10280", "city" : "NEW YORK", "loc" : [ -74.016323, 40.710537 ], "pop" : 5574, "state" : "NY" }
+{ "_id" : "10301", "city" : "STATEN ISLAND", "loc" : [ -74.092663, 40.631602 ], "pop" : 35314, "state" : "NY" }
+{ "_id" : "10302", "city" : "STATEN ISLAND", "loc" : [ -74.137918, 40.630597 ], "pop" : 13369, "state" : "NY" }
+{ "_id" : "10303", "city" : "STATEN ISLAND", "loc" : [ -74.160679, 40.630062 ], "pop" : 17695, "state" : "NY" }
+{ "_id" : "10304", "city" : "STATEN ISLAND", "loc" : [ -74.087836, 40.610249 ], "pop" : 33028, "state" : "NY" }
+{ "_id" : "10305", "city" : "STATEN ISLAND", "loc" : [ -74.076795, 40.597296 ], "pop" : 30513, "state" : "NY" }
+{ "_id" : "10306", "city" : "STATEN ISLAND", "loc" : [ -74.118386, 40.568183 ], "pop" : 49849, "state" : "NY" }
+{ "_id" : "10307", "city" : "STATEN ISLAND", "loc" : [ -74.244482, 40.508452 ], "pop" : 7627, "state" : "NY" }
+{ "_id" : "10308", "city" : "STATEN ISLAND", "loc" : [ -74.152649, 40.55181 ], "pop" : 24947, "state" : "NY" }
+{ "_id" : "10309", "city" : "STATEN ISLAND", "loc" : [ -74.211572, 40.535179 ], "pop" : 18651, "state" : "NY" }
+{ "_id" : "10310", "city" : "STATEN ISLAND", "loc" : [ -74.11715, 40.632427 ], "pop" : 20282, "state" : "NY" }
+{ "_id" : "10312", "city" : "STATEN ISLAND", "loc" : [ -74.179165, 40.545745 ], "pop" : 49584, "state" : "NY" }
+{ "_id" : "10314", "city" : "STATEN ISLAND", "loc" : [ -74.147218, 40.603915 ], "pop" : 78118, "state" : "NY" }
+{ "_id" : "10451", "city" : "BRONX", "loc" : [ -73.921735, 40.8222 ], "pop" : 42854, "state" : "NY" }
+{ "_id" : "10452", "city" : "BRONX", "loc" : [ -73.921555, 40.837594 ], "pop" : 55890, "state" : "NY" }
+{ "_id" : "10453", "city" : "BRONX", "loc" : [ -73.912937, 40.852047 ], "pop" : 70544, "state" : "NY" }
+{ "_id" : "10454", "city" : "BRONX", "loc" : [ -73.919821, 40.808549 ], "pop" : 35994, "state" : "NY" }
+{ "_id" : "10455", "city" : "BRONX", "loc" : [ -73.907172, 40.815309 ], "pop" : 31882, "state" : "NY" }
+{ "_id" : "10456", "city" : "BRONX", "loc" : [ -73.909893, 40.831557 ], "pop" : 70157, "state" : "NY" }
+{ "_id" : "10457", "city" : "BRONX", "loc" : [ -73.899907, 40.848635 ], "pop" : 62133, "state" : "NY" }
+Type "it" for more
+> it
+{ "_id" : "10458", "city" : "BRONX", "loc" : [ -73.889464, 40.863307 ], "pop" : 70612, "state" : "NY" }
+{ "_id" : "10459", "city" : "BRONX", "loc" : [ -73.894047, 40.824699 ], "pop" : 30983, "state" : "NY" }
+{ "_id" : "10460", "city" : "BRONX", "loc" : [ -73.879409, 40.840949 ], "pop" : 47250, "state" : "NY" }
+{ "_id" : "10461", "city" : "BRONX", "loc" : [ -73.840953, 40.846506 ], "pop" : 45273, "state" : "NY" }
+{ "_id" : "10462", "city" : "BRONX", "loc" : [ -73.860185, 40.843369 ], "pop" : 61478, "state" : "NY" }
+{ "_id" : "10463", "city" : "BRONX", "loc" : [ -73.906737, 40.879812 ], "pop" : 67435, "state" : "NY" }
+{ "_id" : "10464", "city" : "BRONX", "loc" : [ -73.787436, 40.846941 ], "pop" : 4113, "state" : "NY" }
+{ "_id" : "10465", "city" : "BRONX", "loc" : [ -73.819581, 40.826065 ], "pop" : 37457, "state" : "NY" }
+{ "_id" : "10466", "city" : "BRONX", "loc" : [ -73.850333, 40.890375 ], "pop" : 58394, "state" : "NY" }
+{ "_id" : "10467", "city" : "BRONX", "loc" : [ -73.871242, 40.873671 ], "pop" : 85710, "state" : "NY" }
+{ "_id" : "10468", "city" : "BRONX", "loc" : [ -73.900259, 40.866231 ], "pop" : 65854, "state" : "NY" }
+{ "_id" : "10469", "city" : "BRONX", "loc" : [ -73.849465, 40.870193 ], "pop" : 53962, "state" : "NY" }
+{ "_id" : "10470", "city" : "BRONX", "loc" : [ -73.862194, 40.900029 ], "pop" : 13254, "state" : "NY" }
+{ "_id" : "10471", "city" : "BRONX", "loc" : [ -73.905283, 40.901084 ], "pop" : 23348, "state" : "NY" }
+{ "_id" : "10472", "city" : "BRONX", "loc" : [ -73.871557, 40.829464 ], "pop" : 61122, "state" : "NY" }
+{ "_id" : "10473", "city" : "BRONX", "loc" : [ -73.860626, 40.819364 ], "pop" : 53981, "state" : "NY" }
+{ "_id" : "10474", "city" : "BRONX", "loc" : [ -73.886376, 40.801518 ], "pop" : 22823, "state" : "NY" }
+{ "_id" : "10475", "city" : "BRONX", "loc" : [ -73.827817, 40.872903 ], "pop" : 37045, "state" : "NY" }
+{ "_id" : "11004", "city" : "GLEN OAKS", "loc" : [ -73.711436, 40.7481 ], "pop" : 19058, "state" : "NY" }
+{ "_id" : "11101", "city" : "ASTORIA", "loc" : [ -73.939393, 40.750316 ], "pop" : 23142, "state" : "NY" }
+Type "it" for more
+> it
+{ "_id" : "11102", "city" : "ASTORIA", "loc" : [ -73.926462, 40.77063 ], "pop" : 30078, "state" : "NY" }
+{ "_id" : "11103", "city" : "ASTORIA", "loc" : [ -73.914886, 40.762651 ], "pop" : 38597, "state" : "NY" }
+{ "_id" : "11104", "city" : "SUNNYSIDE", "loc" : [ -73.921556, 40.743641 ], "pop" : 25898, "state" : "NY" }
+{ "_id" : "11105", "city" : "ASTORIA", "loc" : [ -73.910965, 40.77627 ], "pop" : 37297, "state" : "NY" }
+{ "_id" : "11106", "city" : "ASTORIA", "loc" : [ -73.929527, 40.760813 ], "pop" : 36515, "state" : "NY" }
+{ "_id" : "11201", "city" : "BROOKLYN", "loc" : [ -73.99034, 40.694021 ], "pop" : 46980, "state" : "NY" }
+{ "_id" : "11203", "city" : "BROOKLYN", "loc" : [ -73.934888, 40.650496 ], "pop" : 80566, "state" : "NY" }
+{ "_id" : "11204", "city" : "BROOKLYN", "loc" : [ -73.985623, 40.617871 ], "pop" : 64780, "state" : "NY" }
+{ "_id" : "11205", "city" : "BROOKLYN", "loc" : [ -73.96662, 40.692433 ], "pop" : 36852, "state" : "NY" }
+{ "_id" : "11206", "city" : "BROOKLYN", "loc" : [ -73.943617, 40.701195 ], "pop" : 74825, "state" : "NY" }
+{ "_id" : "11207", "city" : "BROOKLYN", "loc" : [ -73.893957, 40.670486 ], "pop" : 83158, "state" : "NY" }
+{ "_id" : "11208", "city" : "BROOKLYN", "loc" : [ -73.873649, 40.676191 ], "pop" : 78322, "state" : "NY" }
+{ "_id" : "11209", "city" : "BROOKLYN", "loc" : [ -74.030304, 40.625106 ], "pop" : 62346, "state" : "NY" }
+{ "_id" : "11210", "city" : "BROOKLYN", "loc" : [ -73.946682, 40.628064 ], "pop" : 62445, "state" : "NY" }
+{ "_id" : "11211", "city" : "BROOKLYN", "loc" : [ -73.956283, 40.709476 ], "pop" : 78338, "state" : "NY" }
+{ "_id" : "11212", "city" : "BROOKLYN", "loc" : [ -73.914483, 40.662474 ], "pop" : 87079, "state" : "NY" }
+{ "_id" : "11213", "city" : "BROOKLYN", "loc" : [ -73.93665, 40.669961 ], "pop" : 62607, "state" : "NY" }
+{ "_id" : "11214", "city" : "BROOKLYN", "loc" : [ -73.99681, 40.601563 ], "pop" : 73076, "state" : "NY" }
+{ "_id" : "11215", "city" : "BROOKLYN", "loc" : [ -73.982783, 40.666863 ], "pop" : 63338, "state" : "NY" }
+{ "_id" : "11216", "city" : "BROOKLYN", "loc" : [ -73.949639, 40.67943 ], "pop" : 58862, "state" : "NY" }
+Type "it" for more
+> it
+{ "_id" : "11217", "city" : "BROOKLYN", "loc" : [ -73.979797, 40.68165 ], "pop" : 36232, "state" : "NY" }
+{ "_id" : "11218", "city" : "BROOKLYN", "loc" : [ -73.975806, 40.642373 ], "pop" : 66569, "state" : "NY" }
+{ "_id" : "11219", "city" : "BROOKLYN", "loc" : [ -73.996011, 40.633568 ], "pop" : 73527, "state" : "NY" }
+{ "_id" : "11220", "city" : "BROOKLYN", "loc" : [ -74.013287, 40.641165 ], "pop" : 76923, "state" : "NY" }
+{ "_id" : "11221", "city" : "BROOKLYN", "loc" : [ -73.927373, 40.690695 ], "pop" : 70583, "state" : "NY" }
+{ "_id" : "11222", "city" : "BROOKLYN", "loc" : [ -73.949846, 40.727164 ], "pop" : 38158, "state" : "NY" }
+{ "_id" : "11223", "city" : "BROOKLYN", "loc" : [ -73.974291, 40.597874 ], "pop" : 70904, "state" : "NY" }
+{ "_id" : "11224", "city" : "BROOKLYN", "loc" : [ -73.988395, 40.576729 ], "pop" : 52480, "state" : "NY" }
+{ "_id" : "11225", "city" : "BROOKLYN", "loc" : [ -73.954588, 40.662776 ], "pop" : 66752, "state" : "NY" }
+{ "_id" : "11226", "city" : "BROOKLYN", "loc" : [ -73.956985, 40.646694 ], "pop" : 111396, "state" : "NY" }
+{ "_id" : "11228", "city" : "BROOKLYN", "loc" : [ -74.012067, 40.617441 ], "pop" : 39220, "state" : "NY" }
+{ "_id" : "11229", "city" : "BROOKLYN", "loc" : [ -73.94749, 40.601094 ], "pop" : 72660, "state" : "NY" }
+{ "_id" : "11230", "city" : "BROOKLYN", "loc" : [ -73.965007, 40.622493 ], "pop" : 72733, "state" : "NY" }
+{ "_id" : "11231", "city" : "BROOKLYN", "loc" : [ -74.00141, 40.679437 ], "pop" : 32101, "state" : "NY" }
+{ "_id" : "11232", "city" : "BROOKLYN", "loc" : [ -74.001797, 40.652113 ], "pop" : 22777, "state" : "NY" }
+{ "_id" : "11233", "city" : "BROOKLYN", "loc" : [ -73.921104, 40.678415 ], "pop" : 58827, "state" : "NY" }
+{ "_id" : "11234", "city" : "BROOKLYN", "loc" : [ -73.923915, 40.620475 ], "pop" : 74953, "state" : "NY" }
+{ "_id" : "11235", "city" : "BROOKLYN", "loc" : [ -73.953599, 40.583898 ], "pop" : 67088, "state" : "NY" }
+{ "_id" : "11236", "city" : "BROOKLYN", "loc" : [ -73.902764, 40.640685 ], "pop" : 77253, "state" : "NY" }
+{ "_id" : "11237", "city" : "BROOKLYN", "loc" : [ -73.917979, 40.700616 ], "pop" : 48339, "state" : "NY" }
+Type "it" for more
+> it
+{ "_id" : "11238", "city" : "BROOKLYN", "loc" : [ -73.964387, 40.679015 ], "pop" : 42507, "state" : "NY" }
+{ "_id" : "11239", "city" : "BROOKLYN", "loc" : [ -73.882375, 40.649748 ], "pop" : 14948, "state" : "NY" }
+{ "_id" : "11251", "city" : "BROOKLYN NAVY YA", "loc" : [ -73.966511, 40.703578 ], "pop" : 18, "state" : "NY" }
+{ "_id" : "11354", "city" : "FLUSHING", "loc" : [ -73.824142, 40.766722 ], "pop" : 51947, "state" : "NY" }
+{ "_id" : "11355", "city" : "FLUSHING", "loc" : [ -73.822609, 40.753573 ], "pop" : 69164, "state" : "NY" }
+{ "_id" : "11356", "city" : "COLLEGE POINT", "loc" : [ -73.844955, 40.785511 ], "pop" : 17723, "state" : "NY" }
+{ "_id" : "11357", "city" : "WHITESTONE", "loc" : [ -73.809594, 40.785147 ], "pop" : 39093, "state" : "NY" }
+{ "_id" : "11358", "city" : "FLUSHING", "loc" : [ -73.796788, 40.760636 ], "pop" : 34045, "state" : "NY" }
+{ "_id" : "11359", "city" : "FORT TOTTEN", "loc" : [ -73.777244, 40.789967 ], "pop" : 734, "state" : "NY" }
+{ "_id" : "11360", "city" : "BAYSIDE", "loc" : [ -73.781216, 40.780684 ], "pop" : 20337, "state" : "NY" }
+{ "_id" : "11361", "city" : "BAYSIDE", "loc" : [ -73.774457, 40.76268 ], "pop" : 25529, "state" : "NY" }
+{ "_id" : "11362", "city" : "LITTLE NECK", "loc" : [ -73.732622, 40.759131 ], "pop" : 16226, "state" : "NY" }
+{ "_id" : "11363", "city" : "LITTLE NECK", "loc" : [ -73.745401, 40.772166 ], "pop" : 6909, "state" : "NY" }
+{ "_id" : "11364", "city" : "FLUSHING", "loc" : [ -73.758646, 40.745847 ], "pop" : 32080, "state" : "NY" }
+{ "_id" : "11365", "city" : "FRESH MEADOWS", "loc" : [ -73.79506, 40.737424 ], "pop" : 34087, "state" : "NY" }
+{ "_id" : "11366", "city" : "FRESH MEADOWS", "loc" : [ -73.794922, 40.727231 ], "pop" : 12089, "state" : "NY" }
+{ "_id" : "11367", "city" : "FLUSHING", "loc" : [ -73.81953, 40.727966 ], "pop" : 36877, "state" : "NY" }
+{ "_id" : "11368", "city" : "CORONA", "loc" : [ -73.861069, 40.745288 ], "pop" : 75746, "state" : "NY" }
+{ "_id" : "11369", "city" : "EAST ELMHURST", "loc" : [ -73.873902, 40.761254 ], "pop" : 28106, "state" : "NY" }
+{ "_id" : "11370", "city" : "EAST ELMHURST", "loc" : [ -73.891586, 40.761111 ], "pop" : 23910, "state" : "NY" }
+Type "it" for more
+> it
+{ "_id" : "11371", "city" : "FLUSHING", "loc" : [ -73.873535, 40.772117 ], "pop" : 49, "state" : "NY" }
+{ "_id" : "11372", "city" : "JACKSON HEIGHTS", "loc" : [ -73.882975, 40.751329 ], "pop" : 57726, "state" : "NY" }
+{ "_id" : "11373", "city" : "JACKSON HEIGHTS", "loc" : [ -73.878551, 40.740388 ], "pop" : 88241, "state" : "NY" }
+{ "_id" : "11374", "city" : "REGO PARK", "loc" : [ -73.860191, 40.72775 ], "pop" : 40024, "state" : "NY" }
+{ "_id" : "11375", "city" : "FOREST HILLS", "loc" : [ -73.847306, 40.722854 ], "pop" : 65180, "state" : "NY" }
+{ "_id" : "11377", "city" : "WOODSIDE", "loc" : [ -73.906911, 40.744972 ], "pop" : 75894, "state" : "NY" }
+{ "_id" : "11378", "city" : "MASPETH", "loc" : [ -73.899682, 40.723865 ], "pop" : 31292, "state" : "NY" }
+{ "_id" : "11379", "city" : "MIDDLE VILLAGE", "loc" : [ -73.879228, 40.717286 ], "pop" : 28981, "state" : "NY" }
+{ "_id" : "11385", "city" : "RIDGEWOOD", "loc" : [ -73.896122, 40.703613 ], "pop" : 85732, "state" : "NY" }
+{ "_id" : "11411", "city" : "CAMBRIA HEIGHTS", "loc" : [ -73.737445, 40.694741 ], "pop" : 20094, "state" : "NY" }
+{ "_id" : "11412", "city" : "KEW GARDENS", "loc" : [ -73.758641, 40.698097 ], "pop" : 32003, "state" : "NY" }
+{ "_id" : "11413", "city" : "SPRINGFIELD GARD", "loc" : [ -73.75071, 40.67295 ], "pop" : 36679, "state" : "NY" }
+{ "_id" : "11414", "city" : "KEW GARDENS", "loc" : [ -73.845041, 40.660603 ], "pop" : 27256, "state" : "NY" }
+{ "_id" : "11415", "city" : "KEW GARDENS", "loc" : [ -73.829715, 40.706865 ], "pop" : 16703, "state" : "NY" }
+{ "_id" : "11416", "city" : "OZONE PARK", "loc" : [ -73.851397, 40.683753 ], "pop" : 17876, "state" : "NY" }
+{ "_id" : "11417", "city" : "OZONE PARK", "loc" : [ -73.844778, 40.676854 ], "pop" : 22768, "state" : "NY" }
+{ "_id" : "11418", "city" : "RICHMOND HILL", "loc" : [ -73.834484, 40.698171 ], "pop" : 29382, "state" : "NY" }
+{ "_id" : "11419", "city" : "S RICHMOND HILL", "loc" : [ -73.823871, 40.688113 ], "pop" : 37530, "state" : "NY" }
+{ "_id" : "11420", "city" : "S OZONE PARK", "loc" : [ -73.815773, 40.675379 ], "pop" : 38096, "state" : "NY" }
+{ "_id" : "11421", "city" : "WOODHAVEN", "loc" : [ -73.858514, 40.691345 ], "pop" : 29442, "state" : "NY" }
+Type "it" for more
+> it
+{ "_id" : "11422", "city" : "ROSEDALE", "loc" : [ -73.735265, 40.662141 ], "pop" : 26674, "state" : "NY" }
+{ "_id" : "11423", "city" : "HOLLIS", "loc" : [ -73.767685, 40.714156 ], "pop" : 29102, "state" : "NY" }
+{ "_id" : "11426", "city" : "BELLEROSE", "loc" : [ -73.723018, 40.734735 ], "pop" : 18145, "state" : "NY" }
+{ "_id" : "11427", "city" : "QUEENS VILLAGE", "loc" : [ -73.748908, 40.727707 ], "pop" : 21004, "state" : "NY" }
+{ "_id" : "11428", "city" : "QUEENS VILLAGE", "loc" : [ -73.743312, 40.720756 ], "pop" : 16793, "state" : "NY" }
+{ "_id" : "11429", "city" : "QUEENS VILLAGE", "loc" : [ -73.740064, 40.70902 ], "pop" : 24311, "state" : "NY" }
+{ "_id" : "11430", "city" : "JAMAICA", "loc" : [ -73.782663, 40.647221 ], "pop" : 398, "state" : "NY" }
+{ "_id" : "11432", "city" : "JAMAICA", "loc" : [ -73.79442, 40.711867 ], "pop" : 53011, "state" : "NY" }
+{ "_id" : "11433", "city" : "JAMAICA", "loc" : [ -73.787669, 40.69691 ], "pop" : 26325, "state" : "NY" }
+{ "_id" : "11434", "city" : "JAMAICA", "loc" : [ -73.77584, 40.677483 ], "pop" : 50464, "state" : "NY" }
+{ "_id" : "11435", "city" : "JAMAICA", "loc" : [ -73.811121, 40.702934 ], "pop" : 47987, "state" : "NY" }
+{ "_id" : "11436", "city" : "JAMAICA", "loc" : [ -73.796596, 40.676347 ], "pop" : 17020, "state" : "NY" }
+{ "_id" : "11691", "city" : "FAR ROCKAWAY", "loc" : [ -73.757971, 40.600645 ], "pop" : 52162, "state" : "NY" }
+{ "_id" : "11692", "city" : "FAR ROCKAWAY", "loc" : [ -73.797446, 40.59257 ], "pop" : 21192, "state" : "NY" }
+{ "_id" : "11693", "city" : "FAR ROCKAWAY", "loc" : [ -73.819804, 40.607644 ], "pop" : 1630, "state" : "NY" }
+{ "_id" : "11694", "city" : "FAR ROCKAWAY", "loc" : [ -73.839192, 40.579471 ], "pop" : 21972, "state" : "NY" }
+{ "_id" : "11696", "city" : "INWOOD", "loc" : [ -73.746988, 40.617784 ], "pop" : 6660, "state" : "NY" }
+{ "_id" : "11697", "city" : "FAR ROCKAWAY", "loc" : [ -73.914873, 40.560032 ], "pop" : 3690, "state" : "NY" }
+> it
+no cursor
+> db.dbw.aggregate(
+...   [
+...     { $match: 
+...       { $or :
+...         [
+...           { _id : {$gte : "10000", $lte: "10499"} },
+...           { _id : {$gte : "11004", $lte: "11005"} },
+...           { _id : {$gte : "11100", $lte: "11499"} },
+...           { _id : {$gte : "11600", $lte: "11699"} }
+...         ]
+...       },
+...     { $group : { _id : nuthing, count: { $sum: $pop } } }
+...   ]
+... )
+... 
+... 
+> 
+> db.dbw.aggregate(
+...   [
+...     { $match: 
+...       { $or :
+...         [
+...           { _id : {$gte : "10000", $lte: "10499"} },
+...           { _id : {$gte : "11004", $lte: "11005"} },
+...           { _id : {$gte : "11100", $lte: "11499"} },
+...           { _id : {$gte : "11600", $lte: "11699"} }
+...         ]
+...       },
+...     { $group : { _id : null, count: { $sum: $pop } } }
+...   ]
+... )
+... 
+... db.dbw.aggregate(
+...   [
+...     { $match: 
+...       { $or :
+...         [
+...           { _id : {$gte : "10000", $lte: "10499"} },
+...           { _id : {$gte : "11004", $lte: "11005"} },
+...           { _id : {$gte : "11100", $lte: "11499"} },
+...           { _id : {$gte : "11600", $lte: "11699"} }
+...         ]
+...       },
+...     { $group : { "_id" : null, "count": { $sum: $pop } } }
+...   ]
+... )
+... 
+... 
+> db.dbw.aggregate(
+...   [
+...     { $match: 
+...       { $or :
+...         [
+...           { _id : {$gte : "10000", $lte: "10499"} },
+...           { _id : {$gte : "11004", $lte: "11005"} },
+...           { _id : {$gte : "11100", $lte: "11499"} },
+...           { _id : {$gte : "11600", $lte: "11699"} }
+...         ]
+...       },
+...     { $group : { "_id" : null, "count": { $sum: "$pop" } } }
+...   ]
+... )
+... 
+... 
+> 
+> db.dbw.aggregate(
+...   [
+...     { $match: 
+...       { $or :
+...         [
+...           { _id : {$gte : "10000", $lte: "10499"} },
+...           { _id : {$gte : "11004", $lte: "11005"} },
+...           { _id : {$gte : "11100", $lte: "11499"} },
+...           { _id : {$gte : "11600", $lte: "11699"} }
+...         ]
+...       },
+...     { $group : { "_id" : "$city", "count": { $sum: "$pop" } } }
+...   ]
+... )
+... 
+... 
+> db.dbw.aggregate(
+...   [
+...     { $match: 
+...       { $or :
+...         [
+...           { _id : {$gte : "10000", $lte: "10499"} }
+...         ]
+...       },
+...     { $group : { "_id" : "$city", "count": { $sum: "$pop" } } }
+...   ]
+... )
+... 
+... 
+> db.dbw.aggregate(
+...   [
+...     { $match: 
+...       { $or :
+...         [
+...           { _id : {$gte : "10000", $lte: "10499"} },
+...           { _id : {$gte : "11004", $lte: "11005"} },
+...           { _id : {$gte : "11100", $lte: "11499"} },
+...           { _id : {$gte : "11600", $lte: "11699"} }
+...         ]
+...       }
+...     },
+...     { $group : { "_id" : "$city", "count": { $sum: "$pop" } } }
+...   ]
+... )
+{ "_id" : "INWOOD", "count" : 6660 }
+{ "_id" : "JAMAICA", "count" : 195205 }
+{ "_id" : "QUEENS VILLAGE", "count" : 62108 }
+{ "_id" : "BELLEROSE", "count" : 18145 }
+{ "_id" : "WOODHAVEN", "count" : 29442 }
+{ "_id" : "S RICHMOND HILL", "count" : 37530 }
+{ "_id" : "RICHMOND HILL", "count" : 29382 }
+{ "_id" : "OZONE PARK", "count" : 40644 }
+{ "_id" : "FAR ROCKAWAY", "count" : 100646 }
+{ "_id" : "MIDDLE VILLAGE", "count" : 28981 }
+{ "_id" : "HOLLIS", "count" : 29102 }
+{ "_id" : "WHITESTONE", "count" : 39093 }
+{ "_id" : "RIDGEWOOD", "count" : 85732 }
+{ "_id" : "KEW GARDENS", "count" : 75962 }
+{ "_id" : "LITTLE NECK", "count" : 23135 }
+{ "_id" : "FORT TOTTEN", "count" : 734 }
+{ "_id" : "WOODSIDE", "count" : 75894 }
+{ "_id" : "COLLEGE POINT", "count" : 17723 }
+{ "_id" : "BROOKLYN NAVY YA", "count" : 18 }
+{ "_id" : "MASPETH", "count" : 31292 }
+Type "it" for more
+> db.dbw.aggregate(
+...   [
+...     { $match: 
+...       { $or :
+...         [
+...           { _id : {$gte : "10000", $lte: "10499"} },
+...           { _id : {$gte : "11004", $lte: "11005"} },
+...           { _id : {$gte : "11100", $lte: "11499"} },
+...           { _id : {$gte : "11600", $lte: "11699"} }
+...         ]
+...       }
+...     },
+...     { $group : { "_id" : null, "count": { $sum: "$pop" } } }
+...   ]
+... )
+{ "_id" : null, "count" : 7324105 }

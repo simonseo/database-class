@@ -1,0 +1,37 @@
+INSERT INTO students VALUES ("tb1747","Tomasz Bachosz","CS","9293102160","t.b@gmail.com","2015-08-30","2019-05-10");
+INSERT INTO students VALUES ("jk2323","John Kowalski","CS","3232138769","j.k@gmail.com","2015-08-30","2019-05-10");
+INSERT INTO students VALUES ("bm3232","Bard Maison","Arts","8789390987","b.m@gmail.com","2016-08-30","2019-05-10");
+INSERT INTO students VALUES ("ok3456","Olehandra Kalokolova","Mathematics","3245118765","o.k@gmail.com","2016-08-30","2020-05-10");
+INSERT INTO students VALUES ("ms9144","Simon Seo","Mathematics","9174828283","sss@gmail.com","2015-08-30","2019-05-10");
+INSERT INTO students VALUES ("mw94","Mohammed Wallabi","Film","9164929294","mowa@gmail.com","2017-08-28","2021-05-10");
+INSERT INTO students VALUES ("cdc222","Career Development Center","Career Counseling","9715285555","cdc@nyuad.nyu.edu","2010-08-28","2121-05-10");
+
+INSERT INTO clubs VALUES (1234,"Nerds","CS","nerds@gmail.com","nerds.com","We are the group which creates the stuff you use","Courrant",20,"tb1747","ms9144","mw94");
+INSERT INTO clubs VALUES (5678,"ArTIST","Arts","artists@gmail.com","artists.com","We create new Picassos","Tisch",5,"bm3232","ok3456","tb1747");
+INSERT INTO clubs VALUES (1213,"Newtons","Mathematics","mathematicians@gmail.com","mathematicians.com","The goal of the club is to have more fun with mathematics","Courrant",10,"ms9144","jk2323","mw94");
+INSERT INTO clubs VALUES (2324,"Spielbergs","Film","spielberg@gmail.com","spielbergs.com","Our passion are movies - we want to be future directors","Kimmel",3,"ms9144","tb1747","mw94");
+INSERT INTO clubs VALUES (3435,"Explorers","Scuba Diving","scubers@gmail.com","scubers.com","We do scuba diving around the globe - if we find funding","Palladium Gym",50,"bm3232","jk2323","tb1747");
+INSERT INTO clubs VALUES (4546,"Musketeers","Fencing","musketeers@gmail.com","musketeers.com","We are the three musketeers and if more people come we are more","Palladium Gym",25,"bm3232","tb1747","ms9144");
+
+INSERT INTO memberInfo VALUES (1,"2016-11-30",NULL,"tb1747",1234);
+INSERT INTO memberInfo VALUES (2,"2016-12-15",NULL,"ms9144",1234);
+INSERT INTO memberInfo VALUES (3,"2016-12-15",NULL,"mw94",1234);
+INSERT INTO memberInfo VALUES (4,"2017-09-4","2017-10-10","bm3232",1234);
+INSERT INTO memberInfo VALUES (5,"2016-03-30",NULL,"ok3456",5678);
+INSERT INTO memberInfo VALUES (6,"2017-03-14",NULL,"bm3232",5678);
+INSERT INTO memberInfo VALUES (7,"2016-03-17",NULL,"tb1747",5678);
+INSERT INTO memberInfo VALUES (8,"2015-09-20","2016-05-10","jk2323",5678);
+INSERT INTO memberInfo VALUES (10,"2015-09-21",NULL,"ms9144",2324);
+INSERT INTO memberInfo VALUES (11,"2015-09-23",NULL,"tb1747",2324);
+INSERT INTO memberInfo VALUES (12,"2015-10-01",NULL,"mw94",2324);
+INSERT INTO memberInfo VALUES (13,"2015-11-21",NULL,"bm3232",3435);
+INSERT INTO memberInfo VALUES (14,"2015-11-23",NULL,"jk2323",3435);
+INSERT INTO memberInfo VALUES (15,"2016-02-11",NULL,"tb1747",3435);
+INSERT INTO memberInfo VALUES (16,"2013-01-01",NULL,"bm3232",4546);
+INSERT INTO memberInfo VALUES (17,"2017-09-23","2017-09-22","tb1747",4546);
+INSERT INTO memberInfo VALUES (18,"2017-02-11","2017-12-12","ms9144",4546);
+INSERT INTO memberInfo VALUES (22,"2017-02-11","2017-12-12","ms9144",1213);
+INSERT INTO memberInfo VALUES (9,"2017-09-20",NULL,"jk2323",1213);
+INSERT INTO memberInfo VALUES (19,"2017-09-30",NULL,"mw94",1213);
+INSERT INTO memberInfo VALUES (20,"2017-10-30",NULL,"tb1747",1213);
+INSERT INTO memberInfo VALUES (21,"2017-11-01","2017-11-14","ok3456",1213);

@@ -1,6 +1,6 @@
 safe:        false
 port:        4000
-baseurl:     /~ms9144/database/
+baseurl:     /~ms9144/database
 addr:    http://i6.cims.nyu.edu
 
 source:      .

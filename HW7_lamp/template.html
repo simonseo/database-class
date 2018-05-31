@@ -1,0 +1,46 @@
+<style>
+.photobox {
+	border-radius: 10px;
+	box-shadow: rgba(0,0,0,0.1) 1px 1px 5px;
+}
+.photobox-artist {
+	height: 10%;
+	border-bottom: #00000017 1px solid;
+}
+.photobox-artist h3 {
+	margin-left: 7%;
+	padding-top: 4%;
+}
+.photobox-photo {
+	padding-top: 4%;
+	width: 100%;
+}
+.photobox-photo a {
+	display: block;
+}
+.photobox-photo img {
+	max-width: 80%;
+	max-height: 400px;
+	display: block;
+	margin: 0 auto;
+}
+.photobox-description {
+	padding-bottom: 4%;
+}
+.photobox-date {
+	font-weight: bolder;
+}
+</style>
+
+<div class="photobox">
+	<div class="photobox-artist">
+		<a href="{artistWebsite}"><h3>{artistName} - {photoTitle}</h3></a>
+	</div>
+	<div class="photobox-photo">
+		<a href="{photoLink}"><img src="{photoLink}"></a>
+	</div>
+	<div class="photobox-description">
+		<p class="photobox-desc">{photoDescription}</p>
+		<p>Photo taken in <span class="photobox-date">{photoDate}</span></p>
+	</div>
+</div>

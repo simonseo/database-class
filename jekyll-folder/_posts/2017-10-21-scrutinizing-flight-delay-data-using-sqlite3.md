@@ -1,0 +1,14 @@
+---
+layout: post
+title: "Scrutinizing Flight Delay Data Using SQLite3"
+---
+
+This is a July 2017 Data of all domestic flights within the U.S. It contains information of the flights including the plane, origin, destination, and especially the times and delays.
+
+This data is open to the public, on the website of Bureau of Transportation Statistics. This organization is a branch of the United States Department of Transportations and is maintained very well. The data is only a couple months behind and has great documentation including descriptions of each field, which already only uses official terms, and descriptions of values in each field. The bureau also provides information on which data is missing and why. Thus this data seems to be very reliable.
+
+In Lines 18 ~ 27 I query for the maximum arrival delay for each distance group. All flights are divided into groups according to their distances by counting how many 250 miles intervals there are. For most distance groups, the maximum arrival delay were over a thousand minutes but there was no noticeable trend. Also in lines 66 ~ 74 I query for the average arrival and departure delay for each distance group. It also shows that the average delay time is relatively similar across all distance groups and thus we can conclude that distance and delay amount is not strongly correlated. This is a surprising result because I anticipated that longer the flights are, longer the delays would be. Since the distance doesn't cause the delays that much, something else must.
+
+As a side note, it was interesting to see that some airports almost monopolize air traffic. Atlanta, GA accounts for about 6.32% of the flights. The top 10 airports account for about 35% of the traffic; the top 20 for 55%; the top 30 for 68%. Clearly, cities like Atlanta (busiest) and Denver (3rd busiest) are less populous cities compared to New York (19th and 22nd busiest). The reason some smaller cities have more flights could be that their geographical location is suitable for transit. Another reason could be that the bigger cities have more airports around them and thus they can divert the flight flow.
+
+I saw how delayed departures were from these busy airports -- how long an average delay was. I queried for each airport how many flights they dealt with and how delayed an average flight was. I ordered the list once by the number of flights and once by the average delays. It turns out that none of the top 20 busiest airports are in the top 20 most delayed airports. The busyness of airports didn't seem to correlate with the amount of delays flights experienced. The top 10 most delayed airports actually had less than 200 flights in a month. Perhaps very small airports don't have the resources to clear a problem if one arises and thus experience a lot of delays.

@@ -3,3 +3,5 @@ HW2_scrub/scrub
 *.zip
 *.pages
 */.ipynb_checkpoints
+*.csv
+HW2_scrub/Species_All*
